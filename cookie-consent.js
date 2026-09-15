@@ -9,15 +9,25 @@
  *   2. Incluir este script antes de </body>.
  *   3. (Opcional) Un enlace "Preferencias de cookies" con onclick="showCookiePreferences()".
  *
- * Mientras el usuario no acepte, GA4 opera en modo sin cookies (Consent Mode v2):
- * no escribe cookies de análisis/publicidad hasta el opt-in.
- *
- * NOTA: este archivo es un duplicado de public/cookie-consent.js. El que se
- * publica es el de public/ (Vite lo copia a la raíz de dist/). Mantener ambos en sync.
+ * OPT-IN ESTRICTO (14-sep-2026): gtag.js NO va en el <head>. Este script lo
+ * inyecta solo al pulsar "Aceptar cookies" (o al volver con la aceptación
+ * guardada). Antes de eso no sale ninguna petición a Google — ni siquiera los
+ * pings sin cookies de Consent Mode —, que es lo que promete la política.
+ * La página deja en cola gtag('consent','default',…) y gtag('config',…).
  */
 (function () {
   var STORAGE_KEY = 'cookie_consent';
   var POLICY_URL = '/politica-privacidad.html';
+  var GA_ID = 'G-5LE0T6XXGW';
+
+  function loadGA() {
+    if (document.getElementById('cc-gtag')) return;
+    var s = document.createElement('script');
+    s.id = 'cc-gtag';
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+  }
 
   var STYLES = `
     #cc-banner {
@@ -122,6 +132,7 @@
 
     document.getElementById('cc-accept').addEventListener('click', function () {
       updateConsent('granted');
+      loadGA();
       removeBanner();
     });
     document.getElementById('cc-reject').addEventListener('click', function () {
@@ -138,8 +149,9 @@
 
   if (saved === 'granted') {
     updateConsent('granted');
+    loadGA();
   } else if (saved === 'denied') {
-    // Consentimiento denegado previamente → GA4 sigue bloqueado por el default 'denied'.
+    // Consentimiento denegado previamente → gtag.js no se carga.
   } else {
     // Sin decisión previa → mostrar el banner.
     if (document.readyState === 'loading') {

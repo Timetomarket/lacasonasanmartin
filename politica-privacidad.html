@@ -68,6 +68,17 @@
       font-size: .9rem;
       font-weight: 600;
     }
+    .cookie-prefs {
+      padding: 10px 22px;
+      background: #2c1810;
+      color: #fff;
+      border: 0;
+      border-radius: 6px;
+      font: inherit;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
     footer {
       text-align: center;
       padding: 24px;
@@ -80,7 +91,7 @@
 
 <header>
   <h1>Política de Privacidad</h1>
-  <p>Casona San Martín · Versión 2.0 · Vigente desde el 8 de julio de 2026</p>
+  <p>Casona San Martín · Versión 2.1 · Vigente desde el 15 de septiembre de 2026</p>
 </header>
 
 <main>
@@ -199,6 +210,7 @@
     <table>
       <tr><th>Proveedor</th><th>Finalidad</th><th>Ubicación</th></tr>
       <tr><td>Google LLC (Google Analytics 4)</td><td>Analítica web (solo con tu consentimiento)</td><td>EE.UU. / global</td></tr>
+      <tr><td>Supabase (medición de visitas de TimeToMarket)</td><td>Conteo agregado y anónimo de visitas, sin cookies</td><td>EE.UU.</td></tr>
       <tr><td>Hostinger</td><td>Alojamiento del sitio web</td><td>Servidores en el extranjero</td></tr>
       <tr><td>Railway (infraestructura de gestión interna)</td><td>Procesamiento de solicitudes y gestión operativa de la Casona</td><td>EE.UU.</td></tr>
       <tr><td>Meta Platforms (WhatsApp)</td><td>Canal de contacto que tú eliges usar</td><td>EE.UU. / global</td></tr>
@@ -238,13 +250,25 @@
     </p>
 
     <h2>10. Cookies y herramientas de análisis</h2>
-<p><strong>Medición de visitas sin cookies.</strong> Medimos las visitas de forma agregada y anónima (página vista, país y sitio de procedencia). No usamos cookies para esto, no guardamos nada en tu dispositivo, no almacenamos tu dirección IP y no podemos identificarte. Estos datos se procesan en Supabase (servidores fuera de Chile). Por tratarse de datos no personales, esta medición no requiere tu consentimiento.</p>
-
+    <p>En este sitio hay dos mediciones distintas:</p>
     <p>
-      Usamos <strong>Google Analytics 4</strong> bajo <strong>Google Consent Mode v2</strong>. Las
-      cookies de análisis <em>no se activan</em> hasta que las aceptas en el aviso de cookies que aparece
-      al ingresar. Puedes aceptar, rechazar (solo cookies necesarias) o cambiar tu decisión cuando quieras
-      desde el enlace <strong>"Preferencias de cookies"</strong> del pie de página.
+      <strong>1. Medición de visitas sin cookies.</strong> Contamos las visitas de forma agregada y
+      anónima (página vista, país y sitio de procedencia). Para esto no usamos cookies, no guardamos nada
+      en tu dispositivo, no almacenamos tu dirección IP y no podemos identificarte. Estos datos se procesan
+      en Supabase (servidores fuera de Chile). Como no son datos personales, esta medición no requiere tu
+      consentimiento.
+    </p>
+    <p>
+      <strong>2. Google Analytics 4, solo si lo aceptas.</strong> Google Analytics <em>no se carga</em>
+      hasta que pulsas <strong>"Aceptar cookies"</strong> en el aviso que aparece al ingresar: antes de eso
+      tu navegador no se conecta con Google. Si lo aceptas, Google Analytics usa cookies de análisis para
+      medir visitas y uso del sitio. Puedes rechazarlo (<strong>"Solo necesarias"</strong>) o cambiar tu
+      decisión cuando quieras con este botón:
+    </p>
+    <p>
+      <button type="button" class="cookie-prefs" onclick="window.showCookiePreferences &amp;&amp; window.showCookiePreferences()">
+        Cambiar mis preferencias de cookies
+      </button>
     </p>
     <ul>
       <li><strong>Necesarias:</strong> imprescindibles para el funcionamiento del sitio. No requieren consentimiento.</li>
@@ -283,5 +307,6 @@
   <a href="https://lacasonasanmartin.cl/terminos.html">Términos y Condiciones</a>
 </footer>
 
+<script src="/cookie-consent.js?v=fb60e3e3"></script>
 </body>
 </html>
