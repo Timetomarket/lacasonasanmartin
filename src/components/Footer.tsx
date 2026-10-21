@@ -8,9 +8,11 @@ declare global {
 }
 
 const NAV = [
+  { label: "Arriendo de local", href: "#cotizar" },
+  { label: "Arriendo de locales comerciales", href: "/arriendo-locales-rinconada.html" },
   { label: "Nuestra Historia", href: "#historia" },
   { label: "Locales en la Casona", href: "#emprendedores" },
-  { label: "Eventos", href: "#eventos" },
+  { label: "Centro de eventos", href: "/centro-eventos-rinconada.html" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -23,7 +25,7 @@ export default function Footer() {
             src="/photos/logo-casona.jpg"
             alt="Logo de Casona San Martín, patrimonio histórico en Rinconada de Los Andes"
             loading="lazy"
-            className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover ring-1 ring-primary/30"
+            className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white p-1.5 object-contain ring-1 ring-primary/30"
           />
           <div>
             <p
@@ -95,12 +97,10 @@ export default function Footer() {
             </a>
           </p>
         </div>
-        {/* Identificación del prestador (Ley 19.496 art. 32 · Ley 21.719).
-            Reemplazar los placeholders con la razón social y RUT reales. */}
+        {/* Identificación del prestador (Ley 19.496 art. 32 · Ley 21.719). */}
         <address className="text-[11px] text-gray-600 not-italic leading-relaxed">
-          Responsable:{" "}
-          <span className="text-gray-500">[RAZÓN SOCIAL POR CONFIRMAR]</span> · RUT:{" "}
-          <span className="text-gray-500">[RUT POR CONFIRMAR]</span> · Carretera San Martín 421,
+          Responsable: García Villalobos Compañía Limitada · RUT: 77.884.924-0 ·
+          Carretera San Martín 421,
           Paradero 10, Rinconada de los Andes, Región de Valparaíso ·{" "}
           <a
             href="mailto:contacto@lacasonasanmartin.cl"

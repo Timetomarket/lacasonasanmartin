@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bartemon 157 Rinconada — Smashburgers en Rinconada de Los Andes</title>
+<meta name="description" content="Smashburgers de 120 g a la plancha, papas y cervezas en Rinconada de Los Andes. Pide online o retira. Próxima apertura en Casona San Martín.">
+<link rel="canonical" href="https://lacasonasanmartin.cl/bartemon157/">
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="Bartemon 157 Rinconada — Smashburgers en Rinconada de Los Andes">
+<meta property="og:description" content="Carne aplastada a la plancha, queso derretido y pan recién tostado. Desde $5.500.">
+<meta property="og:image" content="https://lacasonasanmartin.cl/bartemon157/img/burgers/721e66fd1c15dba5a42e1e358b747020.jpg">
+<meta property="og:url" content="https://lacasonasanmartin.cl/bartemon157/">
+<meta name="theme-color" content="#0D0B09">
+<link rel="icon" href="img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css?v=20260801g">
+<script src="anima.js?v=20260801g" defer></script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Restaurant", "name": "Bartemon 157 Rinconada", "servesCuisine": ["Hamburguesas", "Smashburger", "Bar"], "priceRange": "$$", "image": "https://lacasonasanmartin.cl/bartemon157/img/logo.jpg", "url": "https://rinconada.bartemon157.cl/", "telephone": "+56971569916", "sameAs": ["https://www.instagram.com/bartemon157"], "address": {"@type": "PostalAddress", "streetAddress": "Los Campos Parcela 2, Rinconada de Los Andes", "addressRegion": "Valparaíso", "addressCountry": "CL"}, "geo": {"@type": "GeoCoordinates", "latitude": -32.8172675, "longitude": -70.701312}, "hasMenu": "https://rinconada.bartemon157.cl/", "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": "https://schema.org/Tuesday", "opens": "17:00", "closes": "22:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "https://schema.org/Wednesday", "opens": "17:00", "closes": "22:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "https://schema.org/Thursday", "opens": "17:00", "closes": "22:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "https://schema.org/Friday", "opens": "17:00", "closes": "23:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "https://schema.org/Saturday", "opens": "17:00", "closes": "23:00"}]}]</script>
+</head>
+<body>
+<div style="background:#5c3d1e;color:#f5ead8;font:500 13px/1.3 Inter,system-ui,sans-serif;padding:10px 16px;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;justify-content:center;text-align:center">
+  <a href="/" style="color:#f5ead8;text-decoration:none;font-family:Georgia,serif;font-size:15px">Casona <em style="color:#d4a574">San Martín</em></a>
+  <span style="opacity:.85">Bartemon 157 · próxima apertura en la Casona</span>
+</div>
+
+<!-- ============ HERO: la Bartemon posándose en la plancha ============
+     La hamburguesa es SU foto, recortada con alfa, ENTERA. Se probó armarla
+     por capas y se veía cortada: una foto plana no guarda lo que hay debajo de
+     cada ingrediente. La plancha del fondo, con los medallones cocinándose, sí
+     es generada — es el proceso, no el plato, y va declarada en el pie. ==== -->
+<header class="hero">
+  <div class="hero__fondo" aria-hidden="true">
+    <!-- 🔴 El sufijo -v2 NO es cosmético. Cloudflare cachea por URL y el ?v=
+         del sello sólo se estampa en .js/.css, no en imágenes ni video: al
+         reemplazar la plancha vacía por la de los medallones conservando el
+         nombre, el edge siguió sirviendo la vieja (origen correcto, CDN no).
+         Cualquier asset que cambie de contenido cambia de nombre. -->
+    <!-- Dirección de arte por tamaño: la toma apaisada de la plancha, metida a
+         la fuerza en una pantalla de teléfono, se magnifica tanto que los
+         medallones dejan de leerse y quedan como una mancha. El móvil lleva su
+         propio recorte, más vertical. -->
+    <picture>
+      <source media="(min-width:900px)" srcset="img/hero/plancha-v3.webp">
+      <img class="hero__plancha" src="img/hero/plancha-movil-v3.webp" alt="" width="550" height="573" fetchpriority="high">
+    </picture>
+    <!-- preload="none" + data-src: el humo sólo se descarga si el visitante no
+         pidió ahorro de datos ni movimiento reducido. Lo decide anima.js. -->
+    <video class="hero__humo" data-src="img/hero/humo-v3.mp4" poster="img/hero/humo-poster-v3.webp"
+           muted playsinline loop preload="none" disablepictureinpicture></video>
+    <!-- La lente de brasa: una fuente de luz que se pasea por encima. -->
+    <div class="brasa"></div>
+  </div>
+  <button class="hero__pausa" type="button" hidden aria-label="Pausar el humo del fondo">&#9613;&#9613;</button>
+  <span class="pista" aria-hidden="true">Pasa por encima</span>
+
+  <div class="hero__arma">
+    <span class="bt-golpe" aria-hidden="true"></span>
+    <span class="bt-sombra" aria-hidden="true"></span>
+    <div class="bt-burger">
+      <picture><source srcset="img/hero/bartemon-v2.webp" type="image/webp"><img src="img/hero/bartemon-v2.png" alt="La Bartemon de Bartemon 157: pan tostado en mantequilla, smashburger de 120 g, queso americano, aro de cebolla crispy y tocino" width="900" height="900" fetchpriority="high" decoding="async"></picture>
+    </div>
+  </div>
+  <p class="bt-ticker" aria-hidden="true"><b>La Bartemon · $7.600</b></p>
+
+  <div class="hero__txt">
+    <span class="sello-bt sello-bt--hero anim">
+      <svg class="sello-bt__anillo" viewBox="0 0 300 300" aria-hidden="true" focusable="false">
+        <defs><path id="aroHero" fill="none" d="M150,150 m-131,0 a131,131 0 1,1 262,0 a131,131 0 1,1 -262,0"/></defs>
+        <circle cx="150" cy="150" r="144" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".55"/><circle cx="150" cy="150" r="116" fill="none" stroke="currentColor" stroke-width="1" opacity=".3"/>
+        <text fill="currentColor" font-family="Anton, Impact, sans-serif" font-size="19" letter-spacing="0">
+          <textPath href="#aroHero" startOffset="0" textLength="823.1" lengthAdjust="spacing">SMASHBURGER &amp; BAR · SAN FELIPE · RINCONADA · DESDE 2021 · 120 G A LA PLANCHA · </textPath>
+        </text>
+      </svg>
+      <img class="sello-bt__disco" src="img/logo-disco.png" alt="Bartemon 157" width="394" height="394">
+    </span>
+    <p class="hero__eyebrow anim">Pioneros de la smash burger en el Valle</p>
+    <h1><span class="wr"><span>SMASH</span></span><span class="wr wr--2"><span>BURGERS</span></span></h1>
+    <p class="hero__bajada anim">120 g de carne aplastada en plancha caliente. El queso se derrite encima, el pan se tuesta en mantequilla. Y llega a la mesa todavía crujiendo.</p>
+    <div class="hero__botones anim"><a class="btn btn--hero iman" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener">
+            <span class="btn__sup">Pedir en</span>Rinconada</a></div>
+    <p class="hero__desde anim">Desde $5.500 · Retiro y delivery</p>
+  </div>
+</header>
+
+<!-- ============ CINTA: hamburguesas pasando sin parar. Esto es lo que da hambre. ============ -->
+<div class="cinta" aria-hidden="true">
+  <div class="cinta__pista"><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/983cd6a8405591dd27a5770d18083175.webp" type="image/webp"><img src="img/burgers/983cd6a8405591dd27a5770d18083175.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Ajicito</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/b555546164a35c4efdaa38e84b0d3827.webp" type="image/webp"><img src="img/burgers/b555546164a35c4efdaa38e84b0d3827.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Appleblue</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/3bbc1944159117ea08466c19ba86dec2.webp" type="image/webp"><img src="img/burgers/3bbc1944159117ea08466c19ba86dec2.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Bacon</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/721e66fd1c15dba5a42e1e358b747020.webp" type="image/webp"><img src="img/burgers/721e66fd1c15dba5a42e1e358b747020.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Bartemon</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/64a352b6bb47740f88dc80e139d30d68.webp" type="image/webp"><img src="img/burgers/64a352b6bb47740f88dc80e139d30d68.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>BTOP</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/4f7ed7fab95a1ff7351ffb87d51c5c03.webp" type="image/webp"><img src="img/burgers/4f7ed7fab95a1ff7351ffb87d51c5c03.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Clásica</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/4898fe2d173e223b420965d7de124277.webp" type="image/webp"><img src="img/burgers/4898fe2d173e223b420965d7de124277.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Cheese</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/dc2b51b71c84ea47f07a058a2b914fcc.webp" type="image/webp"><img src="img/burgers/dc2b51b71c84ea47f07a058a2b914fcc.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>CQ (Carne queso)</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/822f4de098600c0d58377d8d64497ab7.webp" type="image/webp"><img src="img/burgers/822f4de098600c0d58377d8d64497ab7.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>La Patricia</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/f21bf6dcba5324d99dfde8e32a1e7612.webp" type="image/webp"><img src="img/burgers/f21bf6dcba5324d99dfde8e32a1e7612.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Oklahoma</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/5c39faeaf13c7b98cac62029d338d6fe.webp" type="image/webp"><img src="img/burgers/5c39faeaf13c7b98cac62029d338d6fe.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Piñata</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/983cd6a8405591dd27a5770d18083175.webp" type="image/webp"><img src="img/burgers/983cd6a8405591dd27a5770d18083175.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Ajicito</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/b555546164a35c4efdaa38e84b0d3827.webp" type="image/webp"><img src="img/burgers/b555546164a35c4efdaa38e84b0d3827.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Appleblue</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/3bbc1944159117ea08466c19ba86dec2.webp" type="image/webp"><img src="img/burgers/3bbc1944159117ea08466c19ba86dec2.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Bacon</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/721e66fd1c15dba5a42e1e358b747020.webp" type="image/webp"><img src="img/burgers/721e66fd1c15dba5a42e1e358b747020.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Bartemon</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/64a352b6bb47740f88dc80e139d30d68.webp" type="image/webp"><img src="img/burgers/64a352b6bb47740f88dc80e139d30d68.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>BTOP</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/4f7ed7fab95a1ff7351ffb87d51c5c03.webp" type="image/webp"><img src="img/burgers/4f7ed7fab95a1ff7351ffb87d51c5c03.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Clásica</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/4898fe2d173e223b420965d7de124277.webp" type="image/webp"><img src="img/burgers/4898fe2d173e223b420965d7de124277.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Cheese</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/dc2b51b71c84ea47f07a058a2b914fcc.webp" type="image/webp"><img src="img/burgers/dc2b51b71c84ea47f07a058a2b914fcc.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>CQ (Carne queso)</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/822f4de098600c0d58377d8d64497ab7.webp" type="image/webp"><img src="img/burgers/822f4de098600c0d58377d8d64497ab7.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>La Patricia</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/f21bf6dcba5324d99dfde8e32a1e7612.webp" type="image/webp"><img src="img/burgers/f21bf6dcba5324d99dfde8e32a1e7612.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Oklahoma</span></a><a class="cinta__item" href="#carta" draggable="false"><picture><source srcset="img/burgers/5c39faeaf13c7b98cac62029d338d6fe.webp" type="image/webp"><img src="img/burgers/5c39faeaf13c7b98cac62029d338d6fe.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></picture><span>Piñata</span></a></div>
+</div>
+
+<!-- ============ PRUEBA SOCIAL: por qué confiar, en 4 segundos ============ -->
+<!-- El valor FINAL va escrito en el HTML, nunca un 0: sin JS, con reduced-motion
+     o para un crawler el dato se lee correcto. El count-up sólo lo re-anima. -->
+<section class="prueba">
+  <div class="prueba__item"><strong><span class="num" data-n="5">5</span> años</strong><span>en el valle</span></div>
+  <div class="prueba__item"><strong><span class="num" data-n="2">2</span> locales</strong><span>San Felipe y Rinconada</span></div>
+  <div class="prueba__item"><strong>Elaboración propia</strong><span>nada congelado de fábrica</span></div>
+  <div class="prueba__item"><strong><span class="num" data-n="11">11</span> burgers</strong><span>y cervezas heladas</span></div>
+</section>
+
+<!-- ============ LAS BURGERS ============ -->
+<section class="seccion" id="carta">
+  <div class="seccion__head">
+    <h2>La carta</h2>
+    <p>11 smashburgers. Todas de 120 g, todas a la plancha.</p>
+  </div>
+  <div class="burgers">
+      <article class="burger anim">
+        <div class="burger__foto"><picture><source srcset="img/burgers/983cd6a8405591dd27a5770d18083175.webp" type="image/webp"><img src="img/burgers/983cd6a8405591dd27a5770d18083175.jpg" alt="Hamburguesa Ajicito de Bartemon 157" width="900" height="900" loading="lazy" decoding="async"></picture></div>
+        <div class="burger__txt">
+          <h3>Ajicito <span class="precio">$7.900</span></h3>
+          <p>Mayonesa Kraft, mayonesa de ajo fermentado en miel, palta, ajíes encurtidos By María y cebolla crispy.</p>
+          <div class="burger__pedir"><span>Pedir en</span><a class="pide" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener" aria-label="Pedir Ajicito en Rinconada">Rinconada</a></div>
+        </div>
+      </article>
+      <article class="burger anim">
+        <div class="burger__foto"><picture><source srcset="img/burgers/b555546164a35c4efdaa38e84b0d3827.webp" type="image/webp"><img src="img/burgers/b555546164a35c4efdaa38e84b0d3827.jpg" alt="Hamburguesa Appleblue de Bartemon 157" width="900" height="900" loading="lazy" decoding="async"></picture></div>
+        <div class="burger__txt">
+          <h3>Appleblue <span class="precio">$7.500</span></h3>
+          <p>Mayonesa Kraft, queso azul gratinado, manzanas asadas al vino tinto y rúcula.</p>
+          <div class="burger__pedir"><span>Pedir en</span><a class="pide" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener" aria-label="Pedir Appleblue en Rinconada">Rinconada</a></div>
+        </div>
+      </article>
+      <article class="burger anim">
+        <div class="burger__foto"><picture><source srcset="img/burgers/3bbc1944159117ea08466c19ba86dec2.webp" type="image/webp"><img src="img/burgers/3bbc1944159117ea08466c19ba86dec2.jpg" alt="Hamburguesa Bacon de Bartemon 157" width="900" height="900" loading="lazy" decoding="async"></picture></div>
+        <div class="burger__txt">
+          <h3>Bacon <span class="precio">$7.200</span></h3>
+          <p>Tocino, BBQ de la casa, mayonesa Kraft y pepinillos By María.</p>
+          <div class="burger__pedir"><span>Pedir en</span><a class="pide" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener" aria-label="Pedir Bacon en Rinconada">Rinconada</a></div>
+        </div>
+      </article>
+      <article class="burger anim">
+        <div class="burger__foto"><picture><source srcset="img/burgers/721e66fd1c15dba5a42e1e358b747020.webp" type="image/webp"><img src="img/burgers/721e66fd1c15dba5a42e1e358b747020.jpg" alt="Hamburguesa Bartemon de Bartemon 157" width="900" height="900" loading="lazy" decoding="async"></picture><span class="sello">La de la casa</span></div>
+        <div class="burger__txt">
+          <h3>Bartemon <span class="precio">$7.600</span></h3>
+          <p>Smashburger de 120grs con queso americano, mayonesa Kraft, cebolla crispy hecho en casa, cebolla caramelizada al vino tinto, tocino y…</p>
+          <div class="burger__pedir"><span>Pedir en</span><a class="pide" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener" aria-label="Pedir Bartemon en Rinconada">Rinconada</a></div>
+        </div>
+      </article>
+      <article class="burger anim">
+        <div class="burger__foto"><picture><source srcset="img/burgers/64a352b6bb47740f88dc80e139d30d68.webp" type="image/webp"><img src="img/burgers/64a352b6bb47740f88dc80e139d30d68.jpg" alt="Hamburguesa BTOP de Bartemon 157" width="900" height="900" loading="lazy" decoding="async"></picture></div>
+        <div class="burger__txt">
+          <h3>BTOP <span class="precio">$7.700</span></h3>
+          <p>Smash Burger de 120GRS. Con mermelada de tocino, tomates grillados, doble queso americano y pepinillos by maría en su base</p>
+          <div class="burger__pedir"><span>Pedir en</span><a class="pide" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener" aria-label="Pedir BTOP en Rinconada">Rinconada</a></div>
+        </div>
+      </article>
+      <article class="burger anim">
+        <div class="burger__foto"><picture><source srcset="img/burgers/4f7ed7fab95a1ff7351ffb87d51c5c03.webp" type="image/webp"><img src="img/burgers/4f7ed7fab95a1ff7351ffb87d51c5c03.jpg" alt="Hamburguesa Clásica de Bartemon 157" width="900" height="900" loading="lazy" decoding="async"></picture></div>
+        <div class="burger__txt">
+          <h3>Clásica <span class="precio">$7.200</span></h3>
+          <p>Mayonesa Kraft, lechuga lollo bionda, tomate, cebolla morada y salsa BT de la casa.</p>
+          <div class="burger__pedir"><span>Pedir en</span><a class="pide" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener" aria-label="Pedir Clásica en Rinconada">Rinconada</a></div>
+        </div>
+      </article>
+      <article class="burger anim">
+        <div class="burger__foto"><picture><source srcset="img/burgers/4898fe2d173e223b420965d7de124277.webp" type="image/webp"><img src="img/burgers/4898fe2d173e223b420965d7de124277.jpg" alt="Hamburguesa Cheese de Bartemon 157" width="900" height="900" loading="lazy" decoding="async"></picture></div>
+        <div class="burger__txt">
+          <h3>Cheese <span class="precio">$6.900</span></h3>
+          <p>Doble queso americano, ketchup Heinz, cebolla brunoise, mostaza Heinz y pepinillos By María.</p>
+          <div class="burger__pedir"><span>Pedir en</span><a class="pide" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener" aria-label="Pedir Cheese en Rinconada">Rinconada</a></div>
+        </div>
+      </article>
+      <article class="burger anim">
+        <div class="burger__foto"><picture><source srcset="img/burgers/dc2b51b71c84ea47f07a058a2b914fcc.webp" type="image/webp"><img src="img/burgers/dc2b51b71c84ea47f07a058a2b914fcc.jpg" alt="Hamburguesa CQ (Carne queso) de Bartemon 157" width="900" height="900" loading="lazy" decoding="async"></picture><span class="sello">La de entrada</span></div>
+        <div class="burger__txt">
+          <h3>CQ (Carne queso) <span class="precio">$5.500</span></h3>
+          <p>Smashburger de 120grs con queso americano.</p>
+          <div class="burger__pedir"><span>Pedir en</span><a class="pide" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener" aria-label="Pedir CQ (Carne queso) en Rinconada">Rinconada</a></div>
+        </div>
+      </article>
+      <article class="burger anim">
+        <div class="burger__foto"><picture><source srcset="img/burgers/822f4de098600c0d58377d8d64497ab7.webp" type="image/webp"><img src="img/burgers/822f4de098600c0d58377d8d64497ab7.jpg" alt="Hamburguesa La Patricia de Bartemon 157" width="900" height="900" loading="lazy" decoding="async"></picture></div>
+        <div class="burger__txt">
+          <h3>La Patricia <span class="precio">$6.900</span></h3>
+          <p>Smashburger de 120grs, doble queso Americano, mermelada de tocino y mayonesa kraft en pan de molde</p>
+          <div class="burger__pedir"><span>Pedir en</span><a class="pide" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener" aria-label="Pedir La Patricia en Rinconada">Rinconada</a></div>
+        </div>
+      </article>
+      <article class="burger anim">
+        <div class="burger__foto"><picture><source srcset="img/burgers/f21bf6dcba5324d99dfde8e32a1e7612.webp" type="image/webp"><img src="img/burgers/f21bf6dcba5324d99dfde8e32a1e7612.jpg" alt="Hamburguesa Oklahoma de Bartemon 157" width="900" height="900" loading="lazy" decoding="async"></picture></div>
+        <div class="burger__txt">
+          <h3>Oklahoma <span class="precio">$6.900</span></h3>
+          <p>Presionada sobre una cama de cebolla grillada, salsa BT de la casa y pepinillos By María.</p>
+          <div class="burger__pedir"><span>Pedir en</span><a class="pide" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener" aria-label="Pedir Oklahoma en Rinconada">Rinconada</a></div>
+        </div>
+      </article>
+      <article class="burger anim">
+        <div class="burger__foto"><picture><source srcset="img/burgers/5c39faeaf13c7b98cac62029d338d6fe.webp" type="image/webp"><img src="img/burgers/5c39faeaf13c7b98cac62029d338d6fe.jpg" alt="Hamburguesa Piñata de Bartemon 157" width="900" height="900" loading="lazy" decoding="async"></picture></div>
+        <div class="burger__txt">
+          <h3>Piñata <span class="precio">$7.200</span></h3>
+          <p>Mayonesa Kraft, piña flambeada al Coñac, cebolla crispy de la casa y salsa hot honey.</p>
+          <div class="burger__pedir"><span>Pedir en</span><a class="pide" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener" aria-label="Pedir Piñata en Rinconada">Rinconada</a></div>
+        </div>
+      </article>
+  </div>
+</section>
+
+<!-- ============ QUÉ LLEVA: la foto entera y la lista ============ -->
+<section class="seccion arma" id="arma">
+  <div class="seccion__head">
+    <h2>Qué lleva por dentro</h2>
+    <p>La Bartemon, de arriba hacia abajo. Siete cosas, ninguna de relleno.</p>
+  </div>
+  <div class="arma__caja">
+    <div class="arma__foto">
+      <img class="arma__entera" src="img/burgers/721e66fd1c15dba5a42e1e358b747020.jpg" alt="La Bartemon de Bartemon 157"
+           width="900" height="900" loading="lazy" decoding="async">
+    </div>
+    <div class="arma__txt">
+      <ol class="arma__lista">
+      <li style="--orden:0"><span class="arma__n">1</span>La tapa, tostada en mantequilla</li>
+      <li style="--orden:1"><span class="arma__n">2</span>Tocino y BBQ de la casa</li>
+      <li style="--orden:2"><span class="arma__n">3</span>Cebolla caramelizada al vino tinto</li>
+      <li style="--orden:3"><span class="arma__n">4</span>Cebolla crispy, hecha en casa</li>
+      <li style="--orden:4"><span class="arma__n">5</span>Queso americano</li>
+      <li style="--orden:5"><span class="arma__n">6</span>Smashburger de 120 g y mayonesa Kraft</li>
+      <li style="--orden:6"><span class="arma__n">7</span>Pan tostado en mantequilla</li>
+      </ol>
+      <p class="arma__precio">La Bartemon · <b>$7.600</b></p>
+      <div class="arma__pedir"><a class="btn btn--arma iman" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener"><span class="btn__sup">Pedir en</span>Rinconada</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NO SOLO BURGERS ============ -->
+<section class="seccion seccion--alt">
+  <div class="seccion__head">
+    <h2>Para acompañar</h2>
+    <p>Papas fritas, Mac´n Cheese Bites y algo para tomar: cervezas y bebidas.</p>
+  </div>
+  <div class="minis">
+        <article class="mini">
+          <div class="mini__foto"><div class="sinfoto"></div></div>
+          <h4>Papas fritas pequeñas</h4>
+          <span class="precio">$3.000</span>
+        </article>
+        <article class="mini">
+          <div class="mini__foto"><div class="sinfoto"></div></div>
+          <h4>Papas fritas grandes</h4>
+          <span class="precio">$5.000</span>
+        </article>
+        <article class="mini">
+          <div class="mini__foto"><div class="sinfoto"></div></div>
+          <h4>Mac´n Cheese Bites</h4>
+          <span class="precio">$4.500</span>
+        </article>
+  </div>
+  <div class="minis minis--tragos">
+        <article class="mini">
+          <div class="mini__foto"><div class="sinfoto"></div></div>
+          <h4>Botellín lager Peroni</h4>
+          <span class="precio">$2.500</span>
+        </article>
+        <article class="mini">
+          <div class="mini__foto"><div class="sinfoto"></div></div>
+          <h4>Lata cerveza Tamango</h4>
+          <span class="precio">$3.500</span>
+        </article>
+        <article class="mini">
+          <div class="mini__foto"><picture><source srcset="img/otros/e71bb33048962003d8175de499f9ae3c.webp" type="image/webp"><img src="img/otros/e71bb33048962003d8175de499f9ae3c.jpg" alt="Lata MOWA Pariente 473ml" width="900" height="900" loading="lazy" decoding="async"></picture></div>
+          <h4>Lata MOWA Pariente 473ml</h4>
+          <span class="precio">$4.000</span>
+        </article>
+        <article class="mini">
+          <div class="mini__foto"><div class="sinfoto"></div></div>
+          <h4>Lata MOWA Chinita Summer 473ml</h4>
+          <span class="precio">$4.000</span>
+        </article>
+  </div>
+  <p class="seccion__pie"><a href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener">Ver la carta completa →</a></p>
+</section>
+
+<!-- ============ LOCALES ============ -->
+<section class="seccion" id="locales">
+  <div class="seccion__head">
+    <h2>Dónde estamos</h2>
+    <p>Nuestro local de Rinconada de Los Andes. Pronto, también en Casona San Martín.</p>
+  </div>
+  <div class="locales">
+      <article class="local" data-local="rinconada">
+        <h3>Rinconada <span class="estado" data-estado hidden></span></h3>
+        <p class="local__dir">Los Campos Parcela 2, Rinconada de Los Andes</p>
+        <p class="local__dir"><strong>Próxima apertura:</strong> <a href="/" style="color:inherit">Casona San Martín</a>, Carretera San Martín 421, Paradero 10.</p>
+        <ul class="local__hor"><li data-dia="2,3,4">Mar a Jue · 17:00 – 22:00</li><li data-dia="5,6">Vie y Sáb · 17:00 – 23:00</li><li data-dia="0,1">Dom y Lun · cerrado</li></ul>
+        <a class="btn btn--full" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener">Pedir en Rinconada</a>
+        <div class="local__links">
+          <a href="https://wa.me/56971569916" target="_blank" rel="noopener">WhatsApp +56 9 7156 9916</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=-32.8172675,-70.701312" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+      </article>
+  </div>
+</section>
+
+<!-- ============ CIERRE: el antojo ya está, sacarle la fricción ============ -->
+<section class="cierre">
+  <span class="rescoldo" aria-hidden="true"></span>
+  <h2>¿Ya sabes cuál quieres?</h2>
+  <p>Pide desde el teléfono y pásala a buscar caliente. O que te la lleven.</p>
+  <div class="cierre__botones"><a class="btn btn--hero iman" href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener">
+            <span class="btn__sup">Pedir en</span>Rinconada</a></div>
+</section>
+
+<footer class="pie">
+  <span class="sello-bt sello-bt--pie">
+      <svg class="sello-bt__anillo" viewBox="0 0 300 300" aria-hidden="true" focusable="false">
+        <defs><path id="aroPie" fill="none" d="M150,150 m-131,0 a131,131 0 1,1 262,0 a131,131 0 1,1 -262,0"/></defs>
+        <circle cx="150" cy="150" r="144" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".55"/>
+        <text fill="currentColor" font-family="Anton, Impact, sans-serif" font-size="19" letter-spacing="0">
+          <textPath href="#aroPie" startOffset="0" textLength="823.1" lengthAdjust="spacing">SMASHBURGER &amp; BAR · SAN FELIPE · RINCONADA · DESDE 2021 · 120 G A LA PLANCHA · </textPath>
+        </text>
+      </svg>
+      <img class="sello-bt__disco" src="img/logo-disco.png" alt="Bartemon 157" width="394" height="394">
+    </span>
+  <p>Bartemon 157 · Smashburgers &amp; bar · Valle de Aconcagua</p>
+  <div class="pie__links">
+    <a href="https://www.instagram.com/bartemon157" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://wa.me/56971569916" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://rinconada.bartemon157.cl/" target="_blank" rel="noopener">Carta</a>
+  </div>
+  <p class="pie__legal">Precios del local de Rinconada en pesos chilenos, IVA incluido. Sujetos a cambio sin previo aviso.</p>
+  <p class="pie__legal">Sitio de <a href="/" style="color:inherit">Casona San Martín</a> · Responsable: García Villalobos Compañía Limitada · RUT: 77.884.924-0 · <a href="/politica-privacidad.html" style="color:inherit">Privacidad</a> · <a href="/terminos.html" style="color:inherit">Términos</a></p>
+  <p class="pie__legal">Página creada por <a href="https://timetomarket.cl" target="_blank" rel="noopener" style="color:inherit">timetomarket.cl</a> para los locales de Casona San Martín.</p>
+</footer>
+
+<!-- ============ ASISTENTE: sabe la carta, los precios y los dos locales ============ -->
+<button class="chat-abrir" id="chatAbrir" aria-label="Abrir el asistente de Bartemon">
+  <span class="chat-abrir__ico"><img src="img/burgers/4898fe2d173e223b420965d7de124277.jpg" alt="" width="200" height="200" loading="lazy"></span>
+  <span class="chat-abrir__txt">¿Qué pido?</span>
+</button>
+
+<div class="chat" id="chat" role="dialog" aria-modal="false" aria-label="Asistente Bartemon 157" hidden>
+  <header class="chat__top">
+    <img src="img/logo-disco.png" alt="" width="36" height="36">
+    <div>
+      <strong>Asistente Bartemon</strong>
+      <span>Sé la carta de memoria</span>
+    </div>
+    <button class="chat__cerrar" id="chatCerrar" aria-label="Cerrar">&times;</button>
+  </header>
+  <div class="chat__hilo" id="chatHilo" aria-live="polite"></div>
+  <div class="chat__rapidas" id="chatRapidas"></div>
+  <form class="chat__form" id="chatForm">
+    <input id="chatInput" type="text" autocomplete="off" placeholder="Pregúntame por una burger, precio u horario…" aria-label="Escribe tu pregunta">
+    <button type="submit" aria-label="Enviar">➤</button>
+  </form>
+</div>
+
+<script id="cerebro" type="application/json">{"burgers": [{"n": "Ajicito", "p": 7900, "d": "Smashburger de 120grs con queso americano, mayonesa Kraft, mayonesa de ajo fermentados\nen miel, palta, coronada con ajíes encurtidos By María y cebolla crispy.", "o": ["Simple", "Doble +$2.500", "Triple +$5.000", "Falafel", "Pan de papa", "Pan vegano", "Rusticas", "Zigzag", "Crunch", "Ajíes encurtidos By Maria +$600", "Cebolla crispy +$700", "Cebolla caramelizada al vino tinto +$700", "Cebolla morada brunoise +$500", "Cebolla morada  en aros +$500"]}, {"n": "Appleblue", "p": 7500, "d": "Smashburger de 120grs con queso americano, mayonesa Kraft, sabroso queso azul gratinado,\ncoronada con manzanas asadas al vino tinto y rúcula.", "o": ["Simple", "Doble +$2.500", "Triple +$5.000", "Falafel", "Pan de papa", "Pan vegano", "Rusticas", "Zigzag", "Crunch", "Ajíes encurtidos By Maria +$600", "Cebolla crispy +$700", "Cebolla caramelizada al vino tinto +$700", "Cebolla morada brunoise +$500", "Cebolla morada  en aros +$500"]}, {"n": "Bacon", "p": 7200, "d": "Smashburger de 120grs con queso americano, tocino, BBQ de la casa, mayonesa Kraft y\npepinillos By María en su base.", "o": ["Simple", "Doble +$2.500", "Triple +$5.000", "Falafel", "Pan de papa", "Pan vegano", "Rusticas", "Zigzag", "Crunch", "Ajíes encurtidos By Maria +$600", "Cebolla crispy +$700", "Cebolla caramelizada al vino tinto +$700", "Cebolla morada brunoise +$500", "Cebolla morada  en aros +$500"]}, {"n": "Bartemon", "p": 7600, "d": "Smashburger de 120grs con queso americano, mayonesa Kraft, cebolla crispy hecho en\ncasa, cebolla caramelizada al vino tinto, tocino y BBQ de la casa.", "o": ["Simple", "Doble +$2.500", "Triple +$5.000", "Falafel", "Pan de papa", "Pan vegano", "Rusticas", "Zigzag", "Crunch", "Ajíes encurtidos By Maria +$600", "Cebolla crispy +$700", "Cebolla caramelizada al vino tinto +$700", "Cebolla morada brunoise +$500", "Cebolla morada  en aros +$500"]}, {"n": "BTOP", "p": 7700, "d": "Smash Burger de 120GRS. Con mermelada de tocino, tomates grillados, doble queso americano y pepinillos by maría en su base", "o": ["Simple", "Doble +$2.500", "Triple +$5.000", "Falafel", "Pan de papa", "Pan vegano", "Rusticas", "Zigzag", "Crunch", "Ajíes encurtidos By Maria +$600", "Cebolla crispy +$700", "Cebolla caramelizada al vino tinto +$700", "Cebolla morada brunoise +$500", "Cebolla morada  en aros +$500"]}, {"n": "Clásica", "p": 7200, "d": "Smashburger de 120grs con queso americano, mayonesa Kraft, lechuga lollo bionda, tomate,\ncebolla morada y salsa BT de la casa.", "o": ["Simple", "Doble +$2.500", "Triple +$5.000", "Falafel", "Pan de papa", "Pan vegano", "Rusticas", "Zigzag", "Crunch", "Ajíes encurtidos By Maria +$600", "Cebolla crispy +$700", "Cebolla caramelizada al vino tinto +$700", "Cebolla morada brunoise +$500", "Cebolla morada  en aros +$500"]}, {"n": "Cheese", "p": 6900, "d": "Smashburger de 120grs con doble queso americano, ketchup heinz, cebolla brunoise, mostaza\nheinz y pepinillos By María en su base.", "o": ["Simple", "Doble +$2.500", "Triple +$5.000", "Falafel", "Pan de papa", "Pan vegano", "Rusticas", "Zigzag", "Crunch", "Ajíes encurtidos By Maria +$600", "Cebolla crispy +$700", "Cebolla caramelizada al vino tinto +$700", "Cebolla morada brunoise +$500", "Cebolla morada  en aros +$500"]}, {"n": "CQ (Carne queso)", "p": 5500, "d": "Smashburger de 120grs con queso americano.", "o": ["Simple", "Doble +$2.500", "Triple +$5.000", "Falafel", "Pan de papa", "Pan vegano", "Rusticas", "Zigzag", "Crunch", "Ajíes encurtidos By Maria +$600", "Cebolla crispy +$700", "Cebolla caramelizada al vino tinto +$700", "Cebolla morada brunoise +$500", "Cebolla morada  en aros +$500"]}, {"n": "La Patricia", "p": 6900, "d": "Smashburger de 120grs, doble queso Americano, mermelada de tocino y mayonesa kraft en pan de molde", "o": ["Rusticas", "Zigzag", "Crunch", "Aderezo BT +$500", "Aderezo BBQ +$500", "Aderezo de mayonesa Kraft +$500", "Aderezo de mostaza +$500", "Aderezo de ketchup +$500", "Aderezo de mayonesa de ajos fermentados en miel +$500", "Aderezo BT +$500", "Aderezo BBQ +$500", "Aderezo de mayonesa Kraft +$500", "Aderezo de mostaza +$500", "Aderezo de ketchup +$500"]}, {"n": "Oklahoma", "p": 6900, "d": "Smashburger de 120grs con queso americano presionada sobre una cama de cebolla grillada,\ntoques de salsa BT de la casa y pepinillos By María en su base.", "o": ["Simple", "Doble +$2.500", "Triple +$5.000", "Falafel", "Pan de papa", "Pan vegano", "Rusticas", "Zigzag", "Crunch", "Ajíes encurtidos By Maria +$600", "Cebolla crispy +$700", "Cebolla caramelizada al vino tinto +$700", "Cebolla morada brunoise +$500", "Cebolla morada  en aros +$500"]}, {"n": "Piñata", "p": 7200, "d": "Smashburger de 120grs con queso americano, mayonesa Kraft, piña flambeada al Coñac, cebolla crispy de la casa y nuestra salsa hot honey.", "o": ["Simple", "Doble +$2.500", "Triple +$5.000", "Falafel", "Pan de papa", "Pan vegano", "Rusticas", "Zigzag", "Crunch", "Ajíes encurtidos By Maria +$600", "Cebolla crispy +$700", "Cebolla caramelizada al vino tinto +$700", "Cebolla morada brunoise +$500", "Cebolla morada  en aros +$500"]}], "acompana": [{"n": "Papas fritas pequeñas", "p": 3000, "d": "Porción pequeña de papas crujientes y 1 salsa a elección"}, {"n": "Papas fritas grandes", "p": 5000, "d": "Porción grande de papas crujentes y 2 salsas a elección"}, {"n": "Mac´n Cheese Bites", "p": 4500, "d": "Bocaditos crujientes empanizados rellenos de macarrones con queso cremoso"}], "tragos": [{"n": "Botellín lager Peroni", "p": 2500, "d": "Cerveza lager de sabor fresco, ligero, equilibrado y final seco, ideal para maridar con tu burger o disfrutar sola"}, {"n": "Lata cerveza Tamango", "p": 3500, "d": ""}, {"n": "Lata MOWA Pariente 473ml", "p": 4000, "d": "Cerveza en lata de 473ml, color ámbar rojo rubí y aroma a lúpulos (Dry hop). Es liviana y fácil tomabilidad.\nALC: 5,7º  IBU:40  SRM:12"}, {"n": "Lata MOWA Chinita Summer 473ml", "p": 4000, "d": "una cerveza clara, ligera, refrescante y fácil de tomar con un perfil aromático frutal-floral.\nALC: 4,5º  IBU:15  SRM:5"}], "locales": [{"n": "Rinconada", "dir": "Los Campos Parcela 2, Rinconada de Los Andes", "fono": "56971569916", "fonoFmt": "+56 9 7156 9916", "hor": ["Mar a Jue · 17:00 – 22:00", "Vie y Sáb · 17:00 – 23:00", "Dom y Lun · cerrado"], "url": "https://rinconada.bartemon157.cl/", "key": "rinconada", "horas": {"0": null, "1": null, "2": [1020, 1320], "3": [1020, 1320], "4": [1020, 1320], "5": [1020, 1380], "6": [1020, 1380]}}], "desde": 5500}</script>
+<script src="chat.js?v=2" defer></script>
+
+</body>
+</html>

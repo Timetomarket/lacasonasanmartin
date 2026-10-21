@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
   <meta charset="UTF-8" />
   <!-- Google Analytics 4 — Consent Mode v2 -->
@@ -15,12 +15,12 @@
     });
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LE0T6XXGW"></script>
-  <script>gtag('js', new Date()); gtag('config', 'G-5LE0T6XXGW');</script>
+  <script>gtag('js', new Date()); gtag('config', 'G-5LE0T6XXGW', { allow_google_signals: false, allow_ad_personalization_signals: false });</script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pizzería Di María Rinconada de Los Andes · Casona</title>
-  <meta name="description" content="Pizzería Di María en la Casona San Martín, Rinconada de Los Andes. Pizza artesanal al horno de leña, ingredientes locales y ambiente patrimonial. Reservas por WhatsApp." />
-  <meta name="robots" content="index, follow" />
+  <title>Pizzería Di María en Rinconada | Casona San Martín</title>
+  <meta name="description" content="Pizzería Di María en Casona San Martín, Rinconada de Los Andes. Revisa ubicación, horario vigente y contacto antes de tu visita." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://lacasonasanmartin.cl/pizzeria-di-maria.html" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 
@@ -29,15 +29,19 @@
   <meta property="og:url" content="https://lacasonasanmartin.cl/pizzeria-di-maria.html" />
   <meta property="og:site_name" content="Casona San Martín" />
   <meta property="og:title" content="Pizzería Di María · Rinconada de Los Andes" />
-  <meta property="og:description" content="Pizza artesanal al horno de leña en la Casona San Martín, patrimonio histórico en Rinconada de Los Andes, Valle del Aconcagua." />
-  <meta property="og:image" content="https://lacasonasanmartin.cl/photos/hero.jpg" />
+  <meta property="og:description" content="Pizza artesanal y restobar dentro de Casona San Martín, en Rinconada de Los Andes." />
+  <meta property="og:image" content="https://lacasonasanmartin.cl/photos/dimaria-horarios-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Pizzería Di María en Casona San Martín y sus horarios de atención" />
   <meta property="og:locale" content="es_CL" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pizzería Di María · Rinconada de Los Andes" />
-  <meta name="twitter:description" content="Pizza artesanal al horno de leña en la Casona San Martín, Rinconada de Los Andes." />
-  <meta name="twitter:image" content="https://lacasonasanmartin.cl/photos/hero.jpg" />
+  <meta name="twitter:description" content="Pizza artesanal al horno en la Casona San Martín, Rinconada de Los Andes." />
+  <meta name="twitter:image" content="https://lacasonasanmartin.cl/photos/dimaria-horarios-og.jpg" />
+  <meta name="twitter:image:alt" content="Pizzería Di María en Casona San Martín" />
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -48,10 +52,17 @@
         "@type": "WebPage",
         "@id": "https://lacasonasanmartin.cl/pizzeria-di-maria.html",
         "url": "https://lacasonasanmartin.cl/pizzeria-di-maria.html",
-        "name": "Pizzería Di María Rinconada de Los Andes · Casona San Martín",
-        "description": "Pizzería Di María en la Casona San Martín. Pizza artesanal al horno de leña en Rinconada de Los Andes, Valle del Aconcagua.",
+        "name": "Pizzería Di María en Rinconada | Casona San Martín",
+        "description": "Pizzería Di María en Casona San Martín, Rinconada de Los Andes. Ubicación, horario y contacto.",
         "inLanguage": "es-CL",
-        "isPartOf": { "@id": "https://lacasonasanmartin.cl/" },
+        "dateModified": "2026-10-21",
+        "isPartOf": { "@id": "https://lacasonasanmartin.cl/#website" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://lacasonasanmartin.cl/photos/dimaria-horarios-rinconada.jpg",
+          "width": 655,
+          "height": 983
+        },
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -61,15 +72,14 @@
         }
       },
       {
-        "@type": ["Restaurant", "LocalBusiness"],
+        "@type": "Restaurant",
         "@id": "https://lacasonasanmartin.cl/#pizzeria-di-maria",
         "name": "Pizzería Di María",
-        "description": "Pizzería artesanal al horno de leña dentro de la Casona San Martín en Rinconada de Los Andes. Ingredientes frescos, masa madre y ambiente patrimonial único.",
+        "description": "Pizzería y restobar dentro de Casona San Martín, en Rinconada de Los Andes.",
         "url": "https://lacasonasanmartin.cl/pizzeria-di-maria.html",
         "telephone": "+5692650514",
-        "image": "https://lacasonasanmartin.cl/photos/hero.jpg",
-        "servesCuisine": ["Pizza", "Italiana", "Cocina artesanal"],
-        "priceRange": "$$",
+        "image": "https://lacasonasanmartin.cl/photos/dimaria-horarios-rinconada.jpg",
+        "servesCuisine": ["Pizza", "Cocina artesanal"],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Carretera San Martín 421, Paradero 10",
@@ -86,25 +96,32 @@
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Wednesday", "Thursday", "Friday"],
-            "opens": "13:00",
-            "closes": "21:00"
+            "dayOfWeek": ["Tuesday", "Wednesday"],
+            "opens": "12:30",
+            "closes": "16:00"
           },
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
+            "dayOfWeek": ["Tuesday", "Wednesday"],
+            "opens": "18:00",
+            "closes": "21:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Thursday",
+            "opens": "13:00",
+            "closes": "22:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Friday", "Saturday"],
             "opens": "13:00",
             "closes": "23:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Sunday",
-            "opens": "13:00",
-            "closes": "20:00"
           }
         ],
         "sameAs": [
-          "https://www.instagram.com/casonasanmartin/"
+          "https://www.instagram.com/pizzasdimariaaconcagua/",
+          "https://pizzeriadimaria.cl/"
         ],
         "parentOrganization": {
           "@id": "https://lacasonasanmartin.cl/#business"
@@ -118,7 +135,7 @@
             "name": "¿Qué tipo de pizza ofrece la Pizzería Di María en Rinconada?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "La Pizzería Di María ofrece pizzas artesanales al horno de leña, elaboradas con masa madre de fermentación lenta, salsa de tomate artesanal y una selección de ingredientes frescos y locales. El resultado es una pizza de base crujiente, bordes inflados y sabor auténtico, servida en el ambiente patrimonial de la Casona San Martín en Rinconada de Los Andes."
+              "text": "Pizzería Di María ofrece pizza artesanal y funciona como pizzería y restobar dentro de Casona San Martín, en Rinconada de Los Andes. La carta vigente se puede consultar directamente con el local."
             }
           },
           {
@@ -126,7 +143,7 @@
             "name": "¿Cómo llegar a la Pizzería Di María en la Casona San Martín?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "La Pizzería Di María se encuentra dentro de la Casona San Martín en Carretera San Martín 421, Paradero 10, Rinconada de Los Andes. Desde Los Andes son aproximadamente 10 minutos en auto por la Carretera San Martín. También hay acceso en micro desde el terminal de Los Andes."
+              "text": "Pizzería Di María se encuentra dentro de Casona San Martín, en Carretera San Martín 421, Paradero 10, Rinconada de Los Andes."
             }
           },
           {
@@ -134,7 +151,7 @@
             "name": "¿Se pueden hacer reservas en la Pizzería Di María?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sí, se recomienda hacer reserva especialmente los fines de semana y para eventos especiales. Puedes contactar a la Casona San Martín directamente por WhatsApp al +56 9 2650 514 o revisar las publicaciones en Instagram @casonasanmartin para horarios y eventos especiales."
+              "text": "Para consultar disponibilidad o coordinar una visita puedes escribir por WhatsApp al +56 9 2650 514 y revisar las publicaciones vigentes de Casona San Martín."
             }
           }
         ]
@@ -296,6 +313,18 @@
     .info-card h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--brown); }
     .info-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
 
+    .schedule-visual {
+      max-width: 460px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .schedule-visual img { width: 100%; height: auto; display: block; }
+    .schedule-visual figcaption { padding: .85rem 1rem; color: var(--text-muted); font-size: .78rem; }
+
     /* CONTENT */
     .content-block {
       background: var(--warm-white);
@@ -389,6 +418,7 @@
       <a href="https://lacasonasanmartin.cl/" class="nav-logo">Casona <em>San Martín</em></a>
       <ul class="nav-links">
         <li><a href="https://lacasonasanmartin.cl/">Inicio</a></li>
+        <li><a href="/centro-eventos-rinconada.html">Eventos</a></li>
         <li><a href="https://lacasonasanmartin.cl/#emprendedores">Locales</a></li>
         <li><a href="/arriendo-locales-rinconada.html">Arriendo locales</a></li>
         <li><a href="https://wa.me/5692650514" class="nav-cta">WhatsApp</a></li>
@@ -406,7 +436,7 @@
     <div class="hero-inner">
       <span class="hero-tag">Casona San Martín · Rinconada de Los Andes</span>
       <h1>Pizzería Di María<br>Rinconada de Los Andes</h1>
-      <p>Pizza artesanal al horno de leña en un espacio patrimonial único del Valle del Aconcagua. Masa madre, ingredientes frescos y el calor auténtico de la Casona.</p>
+      <p>Pizza artesanal y restobar dentro de Casona San Martín, en Rinconada de Los Andes. Revisa el horario vigente antes de tu visita.</p>
       <a href="https://wa.me/5692650514?text=Hola!%20Quiero%20reservar%20en%20la%20Pizzer%C3%ADa%20Di%20Mar%C3%ADa" class="hero-cta" aria-label="Reservar mesa por WhatsApp">
         💬 Reservar por WhatsApp
       </a>
@@ -424,7 +454,7 @@
           <div class="info-card">
             <div class="ic-icon">🍕</div>
             <h3>Pizza artesanal</h3>
-            <p>Elaborada con masa madre de fermentación lenta y horneada en horno de leña tradicional.</p>
+            <p>Pizza artesanal preparada dentro del entorno de Casona San Martín.</p>
           </div>
           <div class="info-card">
             <div class="ic-icon">📍</div>
@@ -434,40 +464,44 @@
           <div class="info-card">
             <div class="ic-icon">🕐</div>
             <h3>Horarios</h3>
-            <p>Miércoles a viernes: 13:00–21:00 · Sábado: 13:00–23:00 · Domingo: 13:00–20:00</p>
+            <p>Martes y miércoles: 12:30–16:00 y 18:00–21:30 · Jueves: 13:00–22:30 continuado · Viernes y sábado: 13:00–23:00 continuado · Lunes y domingo: cerrado.</p>
           </div>
           <div class="info-card">
             <div class="ic-icon">📞</div>
             <h3>Contacto</h3>
-            <p>WhatsApp: +56 9 2650 514 · Instagram: @casonasanmartin</p>
+            <p>WhatsApp: +56 9 2650 514 · Instagram: <a href="https://www.instagram.com/pizzasdimariaaconcagua/" target="_blank" rel="noopener noreferrer">@pizzasdimariaaconcagua</a></p>
           </div>
         </div>
+      </section>
+
+      <section aria-labelledby="horario-visual-titulo">
+        <h2 class="section-title" id="horario-visual-titulo">Horario vigente de Di María</h2>
+        <p class="section-subtitle">Información publicada por el local; confirma cambios especiales antes de viajar</p>
+        <figure class="schedule-visual">
+          <img src="/photos/dimaria-horarios-rinconada.jpg" width="655" height="983" loading="lazy" alt="Horario de Pizzería Di María en Rinconada: martes y miércoles 12:30 a 16:00 y 18:00 a 21:30; jueves 13:00 a 22:30; viernes y sábado 13:00 a 23:00; lunes y domingo cerrado" />
+          <figcaption>Di María Pizzería &amp; Restobar · Casona San Martín, Rinconada de Los Andes.</figcaption>
+        </figure>
       </section>
 
       <!-- ABOUT -->
       <section aria-labelledby="sobre-dimaria">
         <div class="content-block">
-          <h2 id="sobre-dimaria">Pizzería Di María: arte y sabor en la Casona</h2>
-          <p>La Pizzería Di María nació con la convicción de que una buena pizza necesita tiempo, respeto por los ingredientes y el fuego justo. Instalada en el patio interior de la Casona San Martín, este espacio combina el calor del horno de leña con la atmósfera única de una casona patrimonial de Rinconada de Los Andes, en el corazón del Valle del Aconcagua.</p>
+          <h2 id="sobre-dimaria">Pizzería Di María en Casona San Martín</h2>
+          <p>Di María es una pizzería y restobar ubicada dentro de Casona San Martín, en Carretera San Martín 421, Paradero 10, Rinconada de Los Andes. Su ubicación alrededor del patio permite combinar la visita al local con el recorrido por las demás propuestas de la Casona.</p>
 
-          <h3>Masa madre y fermentación lenta</h3>
-          <p>El secreto de Di María está en su masa. Elaborada con fermento natural de masa madre y una fermentación de más de 24 horas, la base logra una textura ligera, crujiente en los bordes y con un sabor con carácter propio. Esta técnica, propia de las grandes pizzerías napolitanas, es la diferencia entre una pizza del montón y una pizza memorable.</p>
+          <h3>Pizza artesanal y restobar</h3>
+          <p>La propuesta está enfocada en pizza artesanal y una experiencia informal para compartir. Como la carta y las opciones disponibles pueden cambiar, recomendamos revisar el sitio oficial de Di María o consultar directamente antes de la visita.</p>
 
-          <h3>Ingredientes frescos del valle</h3>
-          <p>La cocina de Di María prioriza los productos de proximidad. La salsa de tomate se prepara con variedades seleccionadas de la región, los quesos provienen de productores locales del Valle del Aconcagua, y el aceite de oliva utilizado es de origen chileno. Cada pizza refleja el territorio y la temporada.</p>
-
-          <h3>Especialidades de la carta</h3>
-          <p>La carta incluye clásicos de la tradición italiana renovados con ingredientes nacionales: margaritas con albahaca fresca, pizzas con queso de cabra y rúcula del valle, opciones con prosciutto crudo y combinaciones de temporada. También hay opciones vegetarianas y para compartir en grupos.</p>
-
-          <h3>Ambiente único en patrimonio histórico</h3>
-          <p>Comer en Di María es vivir una experiencia que va más allá de la comida. Las mesas del patio interior de la Casona San Martín, rodeadas de corredores con pilares de madera y jardines florecidos, crean un ambiente íntimo y especial. Los fines de semana con música en vivo en el patio convierten la visita en un plan completo para toda la familia.</p>
+          <h3>Un entorno con identidad</h3>
+          <p>Las mesas se integran al patio y a los corredores de Casona San Martín. El espacio también convive con actividades culturales y encuentros que se anuncian a través de las redes oficiales.</p>
 
           <h3>Horarios de atención</h3>
           <table class="hours-table" aria-label="Horarios Pizzería Di María">
-            <tr><td>Miércoles – Viernes</td><td>13:00 – 21:00</td></tr>
-            <tr><td>Sábado</td><td>13:00 – 23:00</td></tr>
-            <tr><td>Domingo</td><td>13:00 – 20:00</td></tr>
-            <tr><td>Lunes y Martes</td><td>Cerrado</td></tr>
+            <tr><td>Lunes</td><td>Cerrado</td></tr>
+            <tr><td>Martes – Miércoles</td><td>12:30 – 16:00 · 18:00 – 21:30</td></tr>
+            <tr><td>Jueves</td><td>13:00 – 22:30 (continuado)</td></tr>
+            <tr><td>Viernes – Sábado</td><td>13:00 – 23:00 (continuado)</td></tr>
+            <tr><td>Domingo</td><td>Cerrado</td></tr>
           </table>
         </div>
       </section>
@@ -480,19 +514,19 @@
           <details class="faq-item">
             <summary>¿Qué tipo de pizza ofrece Di María en Rinconada de Los Andes?</summary>
             <div class="faq-answer">
-              La Pizzería Di María ofrece pizzas artesanales al horno de leña elaboradas con masa madre de fermentación lenta. La carta incluye clásicos como la margarita, opciones con queso de cabra y rúcula local, pizzas con prosciutto crudo y combinaciones de temporada con ingredientes frescos del Valle del Aconcagua. También hay opciones vegetarianas disponibles.
+              Di María ofrece pizza artesanal y funciona como pizzería y restobar dentro de Casona San Martín. Para conocer la carta y las opciones vigentes, consulta directamente con el local antes de tu visita.
             </div>
           </details>
           <details class="faq-item">
             <summary>¿Cómo llegar a la Pizzería Di María en la Casona San Martín?</summary>
             <div class="faq-answer">
-              La Pizzería Di María se ubica dentro de la Casona San Martín, en Carretera San Martín 421, Paradero 10, Rinconada de Los Andes. Desde Los Andes se llega en unos 10 minutos en auto por la Carretera San Martín hacia el sur. También existe acceso en microbús desde el terminal de Los Andes, bajando en el Paradero 10.
+              Pizzería Di María se ubica dentro de Casona San Martín, en Carretera San Martín 421, Paradero 10, Rinconada de Los Andes. Puedes abrir la ubicación desde la sección de contacto del sitio principal.
             </div>
           </details>
           <details class="faq-item">
             <summary>¿Se necesita reserva en la Pizzería Di María?</summary>
             <div class="faq-answer">
-              Se recomienda hacer reserva especialmente los fines de semana, cuando la demanda es mayor y el patio de la Casona se llena con familias y grupos. Puedes reservar directamente por WhatsApp al +56 9 2650 514. Para eventos especiales o grupos grandes, consulta con anticipación para asegurar tu mesa.
+              Para consultar disponibilidad o coordinar una visita, escribe por WhatsApp al +56 9 2650 514. Revisa también los canales oficiales por posibles cambios de horario o actividades especiales.
             </div>
           </details>
         </div>
@@ -516,13 +550,14 @@
   <footer>
     <p>&copy; 2026 <a href="https://lacasonasanmartin.cl/">Casona San Martín</a> · Carretera San Martín 421, Paradero 10, Rinconada de Los Andes</p>
     <p style="opacity:.8;font-size:.78rem;margin-top:.35rem">
-      Responsable: [RAZÓN SOCIAL POR CONFIRMAR] · RUT: [RUT POR CONFIRMAR] · Contacto:
+      Responsable: García Villalobos Compañía Limitada · RUT: 77.884.924-0 · Contacto:
       <a href="mailto:contacto@lacasonasanmartin.cl">contacto@lacasonasanmartin.cl</a>
     </p>
     <div class="footer-links">
       <a href="https://lacasonasanmartin.cl/">Inicio</a>
       <a href="https://lacasonasanmartin.cl/#emprendedores">Locales</a>
       <a href="/arriendo-locales-rinconada.html">Arriendo locales</a>
+      <a href="/centro-eventos-rinconada.html">Centro de eventos</a>
       <a href="/politica-privacidad.html">Privacidad</a>
       <a href="/terminos.html">Términos</a>
       <a href="#" onclick="showCookiePreferences();return false;">Preferencias de cookies</a>

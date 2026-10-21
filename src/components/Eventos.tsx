@@ -6,6 +6,8 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRef } from "react";
+import { ArrowRight } from "lucide-react";
+import { trackEvent } from "../analytics";
 
 type Event = {
   src: string;
@@ -14,6 +16,16 @@ type Event = {
 };
 
 const EVENTS: Event[] = [
+  {
+    src: "/photos/evento-encuentro-bandas.jpg",
+    title: "Encuentro de Bandas · Halloween",
+    blurb: "Sábado 24 de octubre desde las 11:00 · Entrada gratuita",
+  },
+  {
+    src: "/photos/evento-robotica.svg",
+    title: "Taller de Robótica Educativa",
+    blurb: "Viernes 16:30 a 18:00 · 7 a 12 años · Lebots",
+  },
   {
     src: "/photos/evento-alfred-newman.jpg",
     title: "Alfred Newman · Bossa Nova",
@@ -172,15 +184,30 @@ export default function Eventos() {
               </motion.h2>
             </div>
           </div>
-          <motion.p
-            className="text-[#E1E0CC]/70 text-sm sm:text-base max-w-md"
+          <motion.div
+            className="max-w-md"
             initial={{ opacity: 0, y: 10 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.25 }}
           >
-            Música en vivo, ferias, talleres y celebraciones. Todo el año hay
-            algo nuevo bajo nuestros corredores.
-          </motion.p>
+            <p className="text-[#E1E0CC]/70 text-sm sm:text-base">
+              Música en vivo, ferias, talleres y celebraciones. Todo el año hay
+              algo nuevo bajo nuestros corredores.
+            </p>
+            <a
+              href="/centro-eventos-rinconada.html"
+              onClick={() =>
+                trackEvent("select_content", {
+                  content_type: "events_guide",
+                  item_id: "eventos_conocer_espacio",
+                })
+              }
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#D4A574] underline decoration-[#D4A574]/30 underline-offset-4 transition-colors hover:text-[#E1E0CC]"
+            >
+              Conoce el espacio para eventos
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </motion.div>
         </div>
       </div>
 

@@ -9,7 +9,11 @@ export default defineConfig({
       registerType: 'autoUpdate',
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,jpg,woff2}'],
+        // La landing de Bartemon es un sitio aparte: ni se precachea ni la responde la app
+        globIgnores: ['bartemon157/**'],
         navigateFallback: '/index.html',
+        // Solo las rutas de la app React; el resto (/bartemon157/, páginas *.html nuevas) va a la red
+        navigateFallbackAllowlist: [/^\/(\?.*)?$/, /^\/mesa-central/, /^\/mesadecontrol/, /^\/mesacentral/, /^\/carta/, /^\/emulen-pilates/],
         navigateFallbackDenylist: [/^\/api\//],
       },
       manifest: {

@@ -224,7 +224,7 @@ export default function Contacto() {
                   Cada local con horario propio
                 </p>
                 <p className="text-xs sm:text-sm text-gray-400 mt-1">
-                  Pizzería abre martes a sábado · Pilates de lunes a sábado.
+                  Pizzería de martes a sábado · Café, Balbina y Alisados Studio de lunes a sábado.
                 </p>
               </div>
               <ArrowUpRight

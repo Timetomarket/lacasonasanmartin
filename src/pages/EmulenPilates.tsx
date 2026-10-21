@@ -315,7 +315,7 @@ export default function EmulenPilates() {
             <img
               src="/photos/logo-casona.jpg"
               alt="La Casona San Martín"
-              className="w-10 h-10 rounded-full object-cover"
+              className="w-10 h-10 rounded-full bg-white p-1 object-contain"
             />
             <div>
               <p className="font-serif text-sm" style={{ color: "#E1E0CC" }}>La Casona San Martín</p>

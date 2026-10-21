@@ -1,5 +1,9 @@
 RewriteEngine On
 RewriteBase /
+
+# Ficha retirada: evita que Google reciba una copia SPA de la portada con otra URL.
+RewriteRule ^tiempo-de-cosecha\.html$ / [R=301,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]

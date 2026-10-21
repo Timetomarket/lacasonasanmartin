@@ -8,12 +8,13 @@ import {
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
+import { trackEvent } from "../analytics";
 
 const NAV_ITEMS = [
   { label: "Nuestra Historia", href: "#historia" },
   { label: "Eventos", href: "#eventos" },
-  { label: "Locales en la Casona", href: "#emprendedores" },
-  { label: "Arriendo de Local", href: "#cotizar" },
+  { label: "Marcas", href: "#emprendedores" },
+  { label: "Agendar visita", href: "#cotizar" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -75,7 +76,7 @@ export default function Hero() {
         className="fixed inset-0 z-[90] bg-black pointer-events-none"
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
-        transition={{ duration: 1.4, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+        transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
       />
 
       <section ref={sectionRef} className="h-[100svh] w-full p-4 md:p-6">
@@ -123,7 +124,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
                     duration: 0.5,
-                    delay: 1.3 + i * 0.07,
+                    delay: 0.45 + i * 0.06,
                     ease: [0.16, 1, 0.3, 1],
                   }}
                 >
@@ -155,7 +156,7 @@ export default function Hero() {
               style={{ color: "#E1E0CC" }}
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.5, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
             >
               {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </motion.button>
@@ -190,12 +191,12 @@ export default function Hero() {
             className="hidden md:flex absolute top-6 left-6 z-20 items-center gap-3 bg-black/55 backdrop-blur-md rounded-full p-2 lg:pr-5"
             initial={{ opacity: 0, x: -24 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.75, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
             <img
               src="/photos/logo-casona.jpg"
               alt="Casona San Martín"
-              className="w-12 h-12 lg:w-14 lg:h-14 rounded-full object-cover ring-1 ring-primary/40"
+              className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white p-1 object-contain ring-1 ring-primary/40"
             />
             <span
               className="hidden lg:inline-flex flex-col"
@@ -227,7 +228,7 @@ export default function Hero() {
                     animate={{ scaleX: 1 }}
                     transition={{
                       duration: 0.8,
-                      delay: 0.9,
+                      delay: 0.25,
                       ease: [0.16, 1, 0.3, 1],
                     }}
                   />
@@ -238,9 +239,9 @@ export default function Hero() {
                   className="font-serif font-medium leading-[0.85] tracking-[-0.04em] text-[22vw] sm:text-[20vw] md:text-[18vw] lg:text-[16vw] xl:text-[15vw] flex flex-wrap gap-x-[0.2em]"
                   style={{ color: "#E1E0CC", perspective: "1000px" }}
                 >
-                  <MaskedWord word="Casona" delay={0.55} />
-                  <MaskedWord word="San" delay={0.68} />
-                  <MaskedWord word="Martín" delay={0.78} />
+                  <MaskedWord word="Casona" delay={0.12} />
+                  <MaskedWord word="San" delay={0.2} />
+                  <MaskedWord word="Martín" delay={0.28} />
                 </h1>
 
                 {/* Subtitle with underline draw */}
@@ -252,7 +253,7 @@ export default function Hero() {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{
                       duration: 0.8,
-                      delay: 1.05,
+                      delay: 0.38,
                       ease: [0.16, 1, 0.3, 1],
                     }}
                   >
@@ -261,7 +262,15 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div className="col-span-12 lg:col-span-4 flex flex-col gap-5 lg:pb-6">
+              <div className="col-span-12 lg:col-span-4 flex flex-col gap-4 lg:pb-6">
+                <motion.p
+                  className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary sm:text-xs"
+                  initial={{ y: 16, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.65, delay: 0.42, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  Arriendo de locales comerciales
+                </motion.p>
                 <motion.p
                   className="text-cream/85 text-xs sm:text-sm md:text-base"
                   style={{ lineHeight: 1.4 }}
@@ -269,7 +278,7 @@ export default function Hero() {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{
                     duration: 0.8,
-                    delay: 1.15,
+                    delay: 0.48,
                     ease: [0.16, 1, 0.3, 1],
                   }}
                 >
@@ -280,25 +289,41 @@ export default function Hero() {
                 </motion.p>
 
                 <motion.a
-                  href="#contacto"
+                  href="#cotizar"
+                  onClick={() =>
+                    trackEvent("select_content", {
+                      content_type: "rental_cta",
+                      item_id: "hero_agendar_visita",
+                    })
+                  }
                   className="group inline-flex items-center justify-between gap-2 hover:gap-3 transition-all bg-primary text-black font-medium text-sm sm:text-base rounded-full pl-5 sm:pl-6 pr-1.5 py-1.5 self-start"
                   initial={{ y: 24, opacity: 0, scale: 0.97 }}
                   animate={{ y: 0, opacity: 1, scale: 1 }}
                   transition={{
                     duration: 0.8,
-                    delay: 1.3,
+                    delay: 0.58,
                     ease: [0.16, 1, 0.3, 1],
                   }}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  <span>Quiero mi local aquí</span>
+                  <span>Agendar visita</span>
                   <span className="bg-black rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-transform group-hover:scale-110">
                     <ArrowRight
                       className="w-4 h-4 sm:w-5 sm:h-5"
                       style={{ color: "#D4A574" }}
                     />
                   </span>
+                </motion.a>
+                <motion.a
+                  href="#arriendo"
+                  className="inline-flex w-fit items-center gap-2 text-xs font-medium text-cream/75 underline decoration-white/25 underline-offset-4 transition-colors hover:text-cream sm:text-sm"
+                  initial={{ y: 16, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.65, delay: 0.68 }}
+                >
+                  Ver espacios y beneficios
+                  <ChevronDown className="h-4 w-4" />
                 </motion.a>
               </div>
             </div>
@@ -310,7 +335,7 @@ export default function Hero() {
             style={{ opacity: indicatorOpacity }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2.2, duration: 0.8 }}
+            transition={{ delay: 1, duration: 0.6 }}
           >
             <span
               className="text-[9px] uppercase tracking-[0.25em]"

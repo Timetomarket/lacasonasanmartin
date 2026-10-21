@@ -1,6 +1,5 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
 import InstagramIcon from "./icons/InstagramIcon";
 
 type Schedule = {
@@ -22,43 +21,29 @@ type Schedule = {
 const SCHEDULES: Schedule[] = [
   {
     brand: "Pizzería Di María",
-    tagline: "Pizza artesanal al horno de leña",
+    tagline: "Pizza artesanal al horno",
     logo: "/photos/logo-dimaria.jpg",
     logoBg: "bg-black",
     logoFit: "contain",
     rows: [
       {
-        label: "Lunes a Miércoles",
-        slots: ["12:30 — 15:30", "18:30 — 22:00"],
+        label: "Martes y miércoles",
+        slots: ["12:30 — 16:00", "18:00 — 21:30"],
       },
       {
-        label: "Jueves a Sábado",
-        slots: ["12:30 — 15:30", "18:30 — 23:00"],
+        label: "Jueves · continuado",
+        slots: ["13:00 — 22:30"],
+      },
+      {
+        label: "Viernes y sábado · continuado",
+        slots: ["13:00 — 23:00"],
       },
     ],
-    note: "Domingos: consulta nuestras redes",
+    note: "Lunes y domingo: cerrado",
     web: "https://pizzeriadimaria.cl/",
-  },
-  {
-    brand: "Emulen Pilates Center",
-    tagline: "Clases reformer y mat",
-    logo: "/photos/ig-emulen-pilates.jpg",
-    page: "/emulen-pilates",
-    logoBg: "bg-black",
-    logoFit: "cover",
-    rows: [
-      {
-        label: "Lunes",
-        slots: ["08:30", "10:00", "18:30", "19:45"],
-      },
-      {
-        label: "Martes",
-        slots: ["07:15", "08:30", "10:00", "17:15", "18:30", "19:45"],
-      },
-    ],
-    note: "Miércoles a sábado: agenda completa en Instagram",
-    ig: "https://www.instagram.com/emulen.pilates/",
-    igHandle: "@emulen.pilates",
+    ig: "https://www.instagram.com/pizzasdimariaaconcagua/",
+    igHandle: "@pizzasdimariaaconcagua",
+    page: "/pizzeria-di-maria.html",
   },
   {
     brand: "Punto Origen",
@@ -68,13 +53,62 @@ const SCHEDULES: Schedule[] = [
     logoFit: "contain",
     rows: [
       {
-        label: "Apertura",
-        slots: ["Próximamente"],
+        label: "Lunes",
+        slots: ["09:00 — 13:00"],
+      },
+      {
+        label: "Martes a viernes",
+        slots: ["08:00 — 20:00"],
+      },
+      {
+        label: "Sábado",
+        slots: ["09:00 — 20:00"],
       },
     ],
-    note: "Recién llegada a la Casona — pronto carta y horarios.",
     ig: "https://www.instagram.com/cafeteriapuntoorigen/",
     igHandle: "@cafeteriapuntoorigen",
+    page: "/cafeteria-punto-origen.html",
+  },
+  {
+    brand: "Taller Balbina",
+    tagline: "Uniformes escolares",
+    logo: "/photos/logo-taller-balbina.jpg",
+    logoBg: "bg-[#f5f1e8]",
+    logoFit: "cover",
+    rows: [
+      {
+        label: "Lunes a viernes",
+        slots: ["10:00 — 14:00", "16:00 — 19:00"],
+      },
+      {
+        label: "Sábado",
+        slots: ["10:00 — 14:00"],
+      },
+    ],
+    ig: "https://www.instagram.com/taller_balbina/",
+    igHandle: "@taller_balbina",
+    page: "/taller-balbina-uniformes-escolares.html",
+  },
+  {
+    brand: "Alisados Studio",
+    tagline: "Alisados y cuidado del cabello",
+    logo: "/photos/logo-alisados-studio-mini.jpg",
+    logoBg: "bg-[#141414]",
+    logoFit: "cover",
+    rows: [
+      {
+        label: "Lunes a viernes",
+        slots: ["09:30 — 19:00"],
+      },
+      {
+        label: "Sábado",
+        slots: ["10:00 — 16:00"],
+      },
+    ],
+    note: "Se atiende con reserva previa",
+    ig: "https://www.instagram.com/alisadostudio_/",
+    igHandle: "@alisadostudio_",
+    page: "/alisados-studio-rinconada.html",
   },
 ];
 
@@ -209,13 +243,14 @@ function ScheduleCard({
           </a>
         )}
         {schedule.page && (
-          <Link
-            to={schedule.page}
-            className="inline-flex items-center gap-1 text-xs group ml-auto"
-            style={{ color: "rgba(212,165,116,0.6)" }}
+          <a
+            href={schedule.page}
+            aria-label={`Ver la página web de ${schedule.brand}`}
+            className="inline-flex items-center gap-1 text-xs group ml-auto font-medium"
+            style={{ color: "#D4A574" }}
           >
-            <span className="group-hover:underline group-hover:text-[#D4A574] transition-colors">Ver página →</span>
-          </Link>
+            <span className="group-hover:underline">Ver página web →</span>
+          </a>
         )}
       </div>
     </motion.div>
@@ -241,7 +276,7 @@ export default function Horarios() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
           {SCHEDULES.map((s, i) => (
             <ScheduleCard key={s.brand} schedule={s} index={i} />
           ))}

@@ -4,7 +4,7 @@ import WordsPullUpMultiStyle from "./WordsPullUpMultiStyle";
 import AnimatedLetter from "./AnimatedLetter";
 
 const PARAGRAPH =
-  "Este edificio ha sido testigo de la historia de Rinconada de Los Andes. Hoy, restaurada con respeto a su arquitectura colonial, Casona San Martín reúne pizzería, café, moda sustentable y eventos culturales en un mismo lugar.";
+  "Esta Casona Patrimonial ha sido testigo de la historia de Rinconada de Los Andes. Hoy, restaurada con respeto a su arquitectura colonial, Casona San Martín reúne pizzería, café, moda sustentable y eventos culturales en un mismo lugar.";
 
 export default function About() {
   const ref = useRef<HTMLParagraphElement>(null);
@@ -35,7 +35,7 @@ export default function About() {
             src="/photos/logo-casona.jpg"
             alt="Logo de Casona San Martín, patrimonio histórico colonial en Rinconada de Los Andes, Valle de Aconcagua"
             loading="lazy"
-            className="relative w-full h-full rounded-full object-cover ring-1 ring-[#D4A574]/45"
+            className="relative w-full h-full rounded-full bg-white p-2 sm:p-2.5 object-contain ring-1 ring-[#D4A574]/45"
           />
         </motion.div>
 
@@ -70,7 +70,7 @@ export default function About() {
 
         <p
           ref={ref}
-          className="max-w-2xl mx-auto text-xs sm:text-sm md:text-base leading-relaxed"
+          className="relative max-w-2xl mx-auto text-xs sm:text-sm md:text-base leading-relaxed"
           style={{ color: "#DEDBC8" }}
         >
           {words.map((word, wIdx) => {
