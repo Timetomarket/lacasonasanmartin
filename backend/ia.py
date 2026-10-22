@@ -10,6 +10,7 @@ Variables de entorno:
   ANTHROPIC_MODEL     (opcional; por defecto claude-sonnet-5)
 """
 import os
+import sys
 import json
 import requests
 
@@ -51,7 +52,15 @@ def call_claude(prompt: str, max_tokens: int = 1024, system: str | None = None) 
     except Exception as e:  # noqa: BLE001
         raise RuntimeError(f"Error llamando a Claude: {e}") from e
 
-    return resp.json()["content"][0]["text"].strip()
+    # content[0] no es siempre el texto: con pensamiento activo viene antes el
+    # bloque de razonamiento, y si el modelo declina la lista llega vacia.
+    # (ZIA-CONTENT0-20260920)
+    cuerpo = resp.json()
+    bloques = cuerpo.get("content") or []
+    # Si topó el cupo, lo que viene está CORTADO a media frase. (ZIA-TRUNCADO-20260920)
+    if cuerpo.get("stop_reason") == "max_tokens":
+        print(f"ia.call_claude: respuesta TRUNCADA por max_tokens ({max_tokens})", file=sys.stderr)
+    return "".join(b.get("text", "") for b in bloques if b.get("type") == "text").strip()
 
 
 def call_claude_json(prompt: str, max_tokens: int = 1024, system: str | None = None):

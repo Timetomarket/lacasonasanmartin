@@ -1,4 +1,5 @@
 import os
+import sys
 import base64
 import json
 import re
@@ -526,7 +527,15 @@ Responde SOLO con JSON válido, sin texto adicional:
     except Exception as e:
         raise HTTPException(502, f"Error llamando Claude API: {e}")
 
-    raw = resp.json()["content"][0]["text"].strip()
+    # content[0] no es siempre el texto: con pensamiento activo viene antes el
+    # bloque de razonamiento, y si el modelo declina la lista llega vacia.
+    # (ZIA-CONTENT0-20260920)
+    _cuerpo = resp.json()
+    _bloques = _cuerpo.get("content") or []
+    # Si topó el cupo, el JSON de la boleta viene cortado. (ZIA-TRUNCADO-20260920)
+    if _cuerpo.get("stop_reason") == "max_tokens":
+        print("cotizador: lectura de boleta TRUNCADA por max_tokens", file=sys.stderr)
+    raw = "".join(b.get("text", "") for b in _bloques if b.get("type") == "text").strip()
 
     # Parsear JSON de respuesta
     try:
