@@ -309,6 +309,7 @@
       box-shadow: var(--shadow);
     }
     .space-gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    picture { display: contents; }
     .space-gallery figcaption {
       position: absolute;
       inset: auto 0 0;
@@ -510,15 +511,15 @@
         <p class="section-subtitle">Fotografías reales de Casona San Martín en Rinconada</p>
         <div class="space-gallery">
           <figure>
-            <img src="/photos/patio.jpg" width="1204" height="1504" alt="Patio interior de Casona San Martín y acceso a sus locales comerciales" />
+            <picture><source type="image/webp" srcset="/photos/patio-600.webp 600w, /photos/patio-900.webp 900w, /photos/patio-1204.webp 1204w" sizes="(max-width: 760px) 100vw, 34vw" /><img loading="lazy" decoding="async" src="/photos/patio.jpg" width="1204" height="1504" alt="Patio interior de Casona San Martín y acceso a sus locales comerciales" /></picture>
             <figcaption>Patio interior y acceso a los espacios comerciales.</figcaption>
           </figure>
           <figure>
-            <img src="/photos/corredor-1.jpg" width="1204" height="1504" alt="Corredor interior con puertas de locales en Casona San Martín" />
+            <picture><source type="image/webp" srcset="/photos/corredor-1-600.webp 600w, /photos/corredor-1-1204.webp 1204w" sizes="(max-width: 760px) 100vw, 34vw" /><img loading="lazy" decoding="async" src="/photos/corredor-1.jpg" width="1204" height="1504" alt="Corredor interior con puertas de locales en Casona San Martín" /></picture>
             <figcaption>Corredores que conectan las distintas propuestas.</figcaption>
           </figure>
           <figure>
-            <img src="/photos/casona-corredor-jardin.jpg" width="1400" height="735" style="object-position: 62% 50%" alt="Corredor de baldosa colonial y jardín de Casona San Martín en Rinconada de Los Andes" />
+            <picture><source type="image/webp" srcset="/photos/casona-corredor-jardin-700.webp 700w, /photos/casona-corredor-jardin-1400.webp 1400w" sizes="(max-width: 760px) 100vw, 34vw" /><img loading="lazy" decoding="async" src="/photos/casona-corredor-jardin.jpg" width="1400" height="735" style="object-position: 62% 50%" alt="Corredor de baldosa colonial y jardín de Casona San Martín en Rinconada de Los Andes" /></picture>
             <figcaption>Corredor colonial y jardín de la Casona.</figcaption>
           </figure>
         </div>

@@ -71,22 +71,40 @@ export default function Hero() {
 
   return (
     <>
-      {/* Cinematic opening overlay */}
-      <motion.div
-        className="fixed inset-0 z-[90] bg-black pointer-events-none"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
-      />
-
+      {/* Sin cortina negra de entrada: la foto ya viene pintada desde el index.html */}
       <section ref={sectionRef} className="h-[100svh] w-full p-4 md:p-6">
         <div className="relative h-full w-full overflow-hidden rounded-2xl md:rounded-[2rem]">
 
           {/* Parallax image wrapper */}
           <motion.div
-            className="absolute inset-[-5%]"
+            className="hero-lqip absolute inset-[-5%]"
             style={{ x: imgX, y: imgY }}
           >
+            <picture className="block h-full w-full">
+              {/* AVIF y WebP: el JPG pesaba 531 KB y era el LCP de la portada.
+                  En el celular solo se ve la franja central, así que tope de 1200 px aunque la
+                  pantalla sea de densidad 3. Mismas fuentes y orden que el marco del index.html,
+                  para que React reuse la foto ya bajada en vez de pedirla otra vez */}
+              <source
+                type="image/avif"
+                media="(max-width: 768px)"
+                srcSet="/photos/hero-800.avif 1x, /photos/hero-1200.avif 2x"
+              />
+              <source
+                type="image/avif"
+                srcSet="/photos/hero-800.avif 800w, /photos/hero-1200.avif 1200w, /photos/hero-1500.avif 1500w"
+                sizes="130vw"
+              />
+              <source
+                type="image/webp"
+                media="(max-width: 768px)"
+                srcSet="/photos/hero-800.webp 1x, /photos/hero-1200.webp 2x"
+              />
+              <source
+                type="image/webp"
+                srcSet="/photos/hero-800.webp 800w, /photos/hero-1200.webp 1200w, /photos/hero-1500.webp 1500w"
+                sizes="130vw"
+              />
             <motion.img
               src="/photos/hero.jpg"
               alt="Corredor de Casona San Martín hacia el jardín"
@@ -95,6 +113,7 @@ export default function Hero() {
               animate={{ scale: 1.18 }}
               transition={{ duration: 22, ease: "easeOut" }}
             />
+            </picture>
           </motion.div>
 
           <div className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.4] mix-blend-overlay" />
@@ -194,8 +213,10 @@ export default function Hero() {
             transition={{ duration: 0.75, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
             <img
-              src="/photos/logo-casona.jpg"
+              src="/photos/logo-casona-480.webp"
               alt="Casona San Martín"
+              // En el celular este bloque va oculto: lazy evita que le quite banda a la foto
+              loading="lazy"
               className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white p-1 object-contain ring-1 ring-primary/40"
             />
             <span
@@ -284,7 +305,7 @@ export default function Hero() {
                 >
                   Tu negocio merece un lugar con alma — y con clientes que ya
                   están aquí. Un patrimonio colonial del Valle de Aconcagua
-                  donde tres emprendimientos ya tienen su lugar. El próximo
+                  donde cuatro emprendimientos ya tienen su lugar. El próximo
                   puede ser el tuyo.
                 </motion.p>
 
@@ -331,7 +352,7 @@ export default function Hero() {
 
           {/* Scroll indicator */}
           <motion.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-2"
             style={{ opacity: indicatorOpacity }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

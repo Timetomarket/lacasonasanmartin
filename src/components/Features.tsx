@@ -24,7 +24,7 @@ const BRANDS: Brand[] = [
     number: "01",
     name: "Pizzería Di María",
     tagline: "Pizza artesanal al horno",
-    logo: "/photos/logo-dimaria.jpg",
+    logo: "/photos/logo-dimaria-640.webp",
     logoBg: "bg-black",
     logoFit: "contain",
     items: [
@@ -39,7 +39,7 @@ const BRANDS: Brand[] = [
     number: "02",
     name: "Punto Origen",
     tagline: "Cafetería de especialidad",
-    logo: "/photos/punto-origen.webp",
+    logo: "/photos/punto-origen-600.webp",
     logoBg: "bg-[#1c120a]",
     logoFit: "cover",
     items: [
@@ -55,7 +55,7 @@ const BRANDS: Brand[] = [
     number: "03",
     name: "Taller Balbina",
     tagline: "Uniformes escolares",
-    logo: "/photos/logo-taller-balbina.jpg",
+    logo: "/photos/logo-taller-balbina-556.webp",
     logoBg: "bg-[#f5f1e8]",
     logoFit: "cover",
     items: [
@@ -70,7 +70,7 @@ const BRANDS: Brand[] = [
     number: "04",
     name: "Alisados Studio",
     tagline: "Alisados y cuidado del cabello",
-    logo: "/photos/logo-alisados-studio.jpg",
+    logo: "/photos/logo-alisados-studio-640.webp",
     logoBg: "bg-[#141414]",
     logoFit: "cover",
     items: [

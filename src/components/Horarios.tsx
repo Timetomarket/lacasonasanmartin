@@ -22,7 +22,7 @@ const SCHEDULES: Schedule[] = [
   {
     brand: "Pizzería Di María",
     tagline: "Pizza artesanal al horno",
-    logo: "/photos/logo-dimaria.jpg",
+    logo: "/photos/logo-dimaria-160.webp",
     logoBg: "bg-black",
     logoFit: "contain",
     rows: [
@@ -41,6 +41,8 @@ const SCHEDULES: Schedule[] = [
     ],
     note: "Lunes y domingo: cerrado",
     web: "https://pizzeriadimaria.cl/",
+    phone: "+56998456085",
+    phoneDisplay: "+56 9 9845 6085",
     ig: "https://www.instagram.com/pizzasdimariaaconcagua/",
     igHandle: "@pizzasdimariaaconcagua",
     page: "/pizzeria-di-maria.html",
@@ -72,7 +74,7 @@ const SCHEDULES: Schedule[] = [
   {
     brand: "Taller Balbina",
     tagline: "Uniformes escolares",
-    logo: "/photos/logo-taller-balbina.jpg",
+    logo: "/photos/logo-taller-balbina-160.webp",
     logoBg: "bg-[#f5f1e8]",
     logoFit: "cover",
     rows: [

@@ -40,6 +40,25 @@ body {
   }
 }
 
+/* Miniatura de 16×20 del hero (156 bytes): mientras baja la foto se ve el corredor
+   borroso en vez de un marco negro. La usan el marco del index.html y Hero.tsx */
+.hero-lqip {
+  background-color: #14100c;
+  isolation: isolate;
+}
+
+/* El desenfoque va en una capa propia (detrás de la foto): estirada a pantalla ancha
+   la miniatura sola se ve como una cuadrícula de bloques */
+.hero-lqip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADwAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JQBOgA3PKM/Mo3i5Of/EgAP7qMVQORZIuOiXXUWr6k+enqX4tMym1O5JS577g6hB7ufRVKoCJdLLvVavJd9BIykY4ERvQQCLs2KVMa3MdUKsCLhiSqNaMRzTVy69Cj8LHA9xxtyIBw7C4aIt9AAAA") center / cover no-repeat;
+  filter: blur(28px);
+  transform: scale(1.15);
+}
+
 .noise-overlay {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   background-repeat: repeat;

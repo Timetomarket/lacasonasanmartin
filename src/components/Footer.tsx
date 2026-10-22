@@ -22,7 +22,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
         <a href="#" className="flex items-center gap-4">
           <img
-            src="/photos/logo-casona.jpg"
+            src="/photos/logo-casona-480.webp"
             alt="Logo de Casona San Martín, patrimonio histórico en Rinconada de Los Andes"
             loading="lazy"
             className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white p-1.5 object-contain ring-1 ring-primary/30"

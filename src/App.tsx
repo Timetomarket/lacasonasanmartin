@@ -1,19 +1,9 @@
-import { lazy, Suspense } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { lazy, Suspense, useEffect, useState } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Hero from "./components/Hero";
-import ArriendoSpotlight from "./components/ArriendoSpotlight";
 import ScrollProgress from "./components/ScrollProgress";
-import About from "./components/About";
-import Gallery from "./components/Gallery";
-import Features from "./components/Features";
-import Eventos from "./components/Eventos";
-import Horarios from "./components/Horarios";
-import CotizarLocal from "./components/CotizarLocal";
-import LeaseFAQ from "./components/LeaseFAQ";
-import Contacto from "./components/Contacto";
-import Footer from "./components/Footer";
-import RentalDock from "./components/RentalDock";
 
+const BelowFold = lazy(() => import("./components/BelowFold"));
 const InventarioApp = lazy(() => import("./pages/inventario/InventarioApp"));
 const Carta = lazy(() => import("./pages/Carta"));
 
@@ -25,22 +15,52 @@ function RouteFallback() {
   );
 }
 
+// La app interna (Mesa Central y su carta QR) no va a Google
+function RobotsPorRuta() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const meta = document.querySelector('meta[name="robots"]');
+    if (!meta) return;
+    const interna = /^\/(mesa-central|carta)(\/|$)/.test(pathname);
+    meta.setAttribute("content", interna ? "noindex, nofollow" : "index, follow, max-image-preview:large");
+  }, [pathname]);
+  return null;
+}
+
+// Las secciones de abajo se piden cuando ya bajó la foto del hero (evento load):
+// si compiten con ella por la conexión, el hero tarda medio segundo más en verse.
+// Se adelantan si la persona hace scroll o llega con un ancla; a los 3 s van igual.
+function useTrasElHero() {
+  const [listo, setListo] = useState(
+    () => document.readyState === "complete" || window.location.hash.length > 1,
+  );
+  useEffect(() => {
+    if (listo) return;
+    const marcar = () => setListo(true);
+    const tope = window.setTimeout(marcar, 3000);
+    // Mientras solo existe el hero no hay scroll posible: el gesto se detecta por toque, rueda o tecla
+    const eventos = ["load", "scroll", "touchstart", "wheel", "keydown"];
+    eventos.forEach((e) => window.addEventListener(e, marcar, { once: true, passive: true }));
+    return () => {
+      window.clearTimeout(tope);
+      eventos.forEach((e) => window.removeEventListener(e, marcar));
+    };
+  }, [listo]);
+  return listo;
+}
+
 function Home() {
+  const trasElHero = useTrasElHero();
   return (
     <main className="bg-black min-h-screen overflow-x-hidden">
       <ScrollProgress />
       <Hero />
-      <ArriendoSpotlight />
-      <Features />
-      <CotizarLocal />
-      <LeaseFAQ />
-      <Gallery />
-      <About />
-      <Eventos />
-      <Horarios />
-      <Contacto />
-      <Footer />
-      <RentalDock />
+      {/* Boundary propio: sin él, el Suspense de la ruta taparía el hero mientras carga */}
+      {trasElHero && (
+        <Suspense fallback={null}>
+          <BelowFold />
+        </Suspense>
+      )}
     </main>
   );
 }
@@ -48,6 +68,7 @@ function Home() {
 export default function App() {
   return (
     <Suspense fallback={<RouteFallback />}>
+      <RobotsPorRuta />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/emulen-pilates" element={<Navigate to="/" replace />} />

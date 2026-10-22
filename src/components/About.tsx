@@ -32,7 +32,7 @@ export default function About() {
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           />
           <img
-            src="/photos/logo-casona.jpg"
+            src="/photos/logo-casona-480.webp"
             alt="Logo de Casona San Martín, patrimonio histórico colonial en Rinconada de Los Andes, Valle de Aconcagua"
             loading="lazy"
             className="relative w-full h-full rounded-full bg-white p-2 sm:p-2.5 object-contain ring-1 ring-[#D4A574]/45"

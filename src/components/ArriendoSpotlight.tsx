@@ -150,12 +150,19 @@ export default function ArriendoSpotlight() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
+          <picture>
+            <source
+              type="image/webp"
+              srcSet="/photos/patio-600.webp 600w, /photos/patio-900.webp 900w, /photos/patio-1204.webp 1204w"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           <img
             src="/photos/patio.jpg"
             alt="Patio colonial con espacios comerciales en Casona San Martín"
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover"
           />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
           <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/20 bg-black/65 p-5 text-[#f4eee2] backdrop-blur-xl sm:inset-x-7 sm:bottom-7 sm:p-6 [-webkit-backdrop-filter:blur(24px)]">
             <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#d9a27f]">

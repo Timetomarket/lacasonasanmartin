@@ -4,26 +4,31 @@ import { useRef } from "react";
 const PHOTOS = [
   {
     src: "/photos/corredor-1.jpg",
+    webp: "/photos/corredor-1-600.webp 600w, /photos/corredor-1-1204.webp 1204w",
     alt: "Corredor patrimonial con piso ajedrez",
     span: "lg:col-span-2 lg:row-span-2",
   },
   {
     src: "/photos/ig-emprendedores.jpg",
+    webp: "/photos/ig-emprendedores-600.webp 600w",
     alt: "Casona San Martín desde el jardín con bandera chilena",
     span: "",
   },
   {
     src: "/photos/pavellon.jpg",
+    webp: "/photos/pavellon-600.webp 600w",
     alt: "Pavellón con techo de madera",
     span: "",
   },
   {
     src: "/photos/ig-eventos-collage.jpg",
+    webp: "/photos/ig-eventos-collage-600.webp 600w, /photos/ig-eventos-collage-1080.webp 1080w",
     alt: "Eventos y vida en Casona San Martín",
     span: "",
   },
   {
     src: "/photos/patio.jpg",
+    webp: "/photos/patio-600.webp 600w, /photos/patio-900.webp 900w",
     alt: "Patio con sillas y mesas",
     span: "",
   },
@@ -33,7 +38,7 @@ function Tile({
   photo,
   index,
 }: {
-  photo: { src: string; alt: string; span: string };
+  photo: { src: string; webp: string; alt: string; span: string };
   index: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -62,13 +67,20 @@ function Tile({
         ease: [0.22, 1, 0.36, 1],
       }}
     >
-      <motion.img
-        src={photo.src}
-        alt={photo.alt}
-        loading="lazy"
-        className="h-full w-full object-cover"
-        style={{ y: imgY, scale: 1.25 }}
-      />
+      <picture className="block h-full w-full">
+        <source
+          type="image/webp"
+          srcSet={photo.webp}
+          sizes={photo.span ? "50vw" : "(max-width: 1024px) 50vw, 25vw"}
+        />
+        <motion.img
+          src={photo.src}
+          alt={photo.alt}
+          loading="lazy"
+          className="h-full w-full object-cover"
+          style={{ y: imgY, scale: 1.25 }}
+        />
+      </picture>
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
       {/* Hover shine */}
       <motion.div

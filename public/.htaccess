@@ -1,18 +1,41 @@
+ErrorDocument 404 /404.html
+
 RewriteEngine On
 RewriteBase /
 
+# Un solo dominio para Google: www -> sin www
+RewriteCond %{HTTP_HOST} ^www\.lacasonasanmartin\.cl$ [NC]
+RewriteRule ^ https://lacasonasanmartin.cl%{REQUEST_URI} [R=301,L]
+
 # Ficha retirada: evita que Google reciba una copia SPA de la portada con otra URL.
 RewriteRule ^tiempo-de-cosecha\.html$ / [R=301,L]
+# Emulen Pilates ya no está en la Casona.
+RewriteRule ^emulen-pilates/?$ / [R=301,L]
 
+# Solo las rutas de la app React caen a index.html. Cualquier otra dirección que
+# no exista responde 404 de verdad (antes daba 200 con la portada: soft-404).
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
+RewriteRule ^(mesa-central|mesadecontrol|mesacentral|carta)(/.*)?$ /index.html [L]
+
+# La app interna (Mesa Central y su carta QR) no va a Google.
+<IfModule mod_setenvif.c>
+  SetEnvIf Request_URI "^/(mesa-central|mesadecontrol|mesacentral|carta)(/|$)" CASONA_NOINDEX
+</IfModule>
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow" env=CASONA_NOINDEX
+  Header set X-Robots-Tag "noindex, nofollow" env=REDIRECT_CASONA_NOINDEX
+</IfModule>
+
+# Foto del hero en AVIF: tipo explícito por si el servidor no lo conoce
+AddType image/avif .avif
 
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
 </IfModule>
