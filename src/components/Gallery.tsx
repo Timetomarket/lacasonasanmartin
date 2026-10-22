@@ -9,8 +9,8 @@ const PHOTOS = [
     span: "lg:col-span-2 lg:row-span-2",
   },
   {
-    src: "/photos/ig-emprendedores.jpg",
-    webp: "/photos/ig-emprendedores-600.webp 600w",
+    src: "/photos/casona-frente-jardin-1242.jpg",
+    webp: "/photos/casona-frente-jardin-600.webp 600w, /photos/casona-frente-jardin-900.webp 900w",
     alt: "Casona San Martín desde el jardín con bandera chilena",
     span: "",
   },

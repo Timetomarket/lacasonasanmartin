@@ -10,7 +10,7 @@ import {
 import { trackEvent } from "../analytics";
 
 const WHATSAPP_URL =
-  "https://wa.me/5692650514?text=" +
+  "https://wa.me/56992650514?text=" +
   encodeURIComponent(
     "Hola, quiero conocer los locales disponibles en Casona San Martín y agendar una visita.",
   );

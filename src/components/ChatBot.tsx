@@ -108,7 +108,7 @@ export default function ChatBot() {
           {
             role: "assistant",
             content:
-              "Lo siento, hubo un error. Por favor contáctanos directamente al +56 9 2650 514 o en @casonasanmartin.",
+              "Lo siento, hubo un error. Por favor contáctanos directamente al +56 9 9265 0514 o en @casonasanmartin.",
           },
         ]);
       } finally {

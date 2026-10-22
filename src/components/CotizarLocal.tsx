@@ -48,9 +48,9 @@ const STEPS = [
   },
 ];
 
-const ADMIN_WA = "5692650514";
+const ADMIN_WA = "56992650514";
 const DIRECT_WA =
-  "https://wa.me/5692650514?text=" +
+  "https://wa.me/56992650514?text=" +
   encodeURIComponent(
     "Hola, quiero conocer los locales disponibles en Casona San Martín y agendar una visita.",
   );

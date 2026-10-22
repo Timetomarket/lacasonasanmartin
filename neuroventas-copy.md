@@ -8,7 +8,7 @@
 
 ## 1. Diagnóstico
 
-**Qué vende el sitio (según el contenido real):** Casona San Martín es un **edificio patrimonial colonial restaurado** en Rinconada de Los Andes (Valle de Aconcagua) que funciona como **colectivo comercial**: bajo un mismo patio conviven 7 emprendimientos (Pizzería Di María, Tiempo de Cosecha, Recircula Blue Point, Emulen Pilates, RocHelo, Andes Car Wash, Hylba de Paiva Fitness) y se realizan eventos culturales. El **objetivo de conversión #1 del sitio es ARRENDAR LOCALES a emprendedores** (sección "Arriendo de Local" / cotizador a WhatsApp +56 9 2650 514). Objetivo #2: atraer visitantes a los locales y eventos.
+**Qué vende el sitio (según el contenido real):** Casona San Martín es un **edificio patrimonial colonial restaurado** en Rinconada de Los Andes (Valle de Aconcagua) que funciona como **colectivo comercial**: bajo un mismo patio conviven 7 emprendimientos (Pizzería Di María, Tiempo de Cosecha, Recircula Blue Point, Emulen Pilates, RocHelo, Andes Car Wash, Hylba de Paiva Fitness) y se realizan eventos culturales. El **objetivo de conversión #1 del sitio es ARRENDAR LOCALES a emprendedores** (sección "Arriendo de Local" / cotizador a WhatsApp +56 9 9265 0514). Objetivo #2: atraer visitantes a los locales y eventos.
 
 **Avatar primario (arrendatario):** Emprendedor/a 28-50 años del Valle de Aconcagua (Los Andes, San Felipe, Rinconada) con un negocio o una idea (café, tienda, estudio de bienestar, taller) que busca un local **con flujo de clientes y carácter**, sin pagar el costo y el riesgo de montar un punto solo desde cero.
 

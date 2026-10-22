@@ -12,8 +12,8 @@ const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${MAPS_QUERY}`
 const PHONES = [
   {
     label: "Administración Casona",
-    tel: "+5692650514",
-    display: "+56 9 2650 514",
+    tel: "+56992650514",
+    display: "+56 9 9265 0514",
   },
 ];
 
@@ -59,12 +59,21 @@ export default function Contacto() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7 }}
           >
-            <img
-              src="/photos/ig-emprendedores.jpg"
-              alt="Patio colonial de La Casona San Martín en Rinconada de Los Andes, Valle de Aconcagua"
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+            {/* Recortada: la original era una captura de Instagram con una franja borrosa arriba */}
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/photos/casona-frente-jardin-600.webp 600w, /photos/casona-frente-jardin-900.webp 900w, /photos/casona-frente-jardin-1242.webp 1242w"
+                sizes="(max-width: 1024px) 100vw, 60vw"
+              />
+              <img
+                src="/photos/casona-frente-jardin-1242.jpg"
+                alt="Casona San Martín desde el jardín, en Rinconada de Los Andes, Valle de Aconcagua"
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </picture>
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
             <div className="absolute top-5 left-5 right-5 flex items-center justify-between">
               <span
