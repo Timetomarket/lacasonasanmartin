@@ -204,7 +204,7 @@ export default function Eventos() {
               }
               className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#D4A574] underline decoration-[#D4A574]/30 underline-offset-4 transition-colors hover:text-[#E1E0CC]"
             >
-              Conoce el espacio para eventos
+              Conoce el centro de eventos en Rinconada
               <ArrowRight className="h-4 w-4" />
             </a>
           </motion.div>
