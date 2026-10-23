@@ -339,6 +339,16 @@
     </div>
   </footer>
 
-  <script src="/cookie-consent.js" data-endpoint="https://vwccycigyqmctivgwcqu.functions.supabase.co/consent"></script>
+  <script>
+    // Clic en WhatsApp = consulta de evento a la Casona (evento clave, como en la portada).
+    // Solo con análisis aceptado, igual que trackEvent() de la portada.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://wa.me/"]');
+      if (!a || typeof gtag !== 'function') return;
+      try { if (localStorage.getItem('cookie_consent') !== 'granted') return; } catch (err) { return; }
+      gtag('event', 'click_whatsapp', { cta_location: 'centro_eventos_landing' });
+    });
+  </script>
+  <script src="/cookie-consent.js?v=d69da6ea" data-endpoint="https://vwccycigyqmctivgwcqu.functions.supabase.co/consent"></script>
 </body>
 </html>

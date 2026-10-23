@@ -566,6 +566,16 @@
     </div>
   </footer>
 
-  <script src="cookie-consent.js" data-endpoint="https://vwccycigyqmctivgwcqu.functions.supabase.co/consent"></script>
+  <script>
+    // WhatsApp del local, no de la Casona: va como contact, no como click_whatsapp (que cuenta arriendos).
+    // Solo con análisis aceptado, igual que trackEvent() de la portada.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://wa.me/"]');
+      if (!a || typeof gtag !== 'function') return;
+      try { if (localStorage.getItem('cookie_consent') !== 'granted') return; } catch (err) { return; }
+      gtag('event', 'contact', { method: 'whatsapp', local: 'pizzeria_di_maria' });
+    });
+  </script>
+  <script src="cookie-consent.js?v=d69da6ea" data-endpoint="https://vwccycigyqmctivgwcqu.functions.supabase.co/consent"></script>
 </body>
 </html>

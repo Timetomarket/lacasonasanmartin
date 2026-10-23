@@ -677,7 +677,9 @@
 
       document.addEventListener('click', function (e) {
         var a = e.target.closest && e.target.closest('a[href^="https://wa.me/"]');
-        if (a && typeof gtag === 'function') {
+        var aceptado = false;
+        try { aceptado = localStorage.getItem('cookie_consent') === 'granted'; } catch (err) {}
+        if (a && aceptado && typeof gtag === 'function') {
           gtag('event', 'contact', { method: 'whatsapp', local: 'taller_balbina', colegio: a.getAttribute('data-colegio') || '' });
         }
       });
@@ -722,6 +724,6 @@
       } catch (err) { /* sin estado vivo: queda el horario fijo */ }
     })();
   </script>
-  <script src="cookie-consent.js" data-endpoint="https://vwccycigyqmctivgwcqu.functions.supabase.co/consent"></script>
+  <script src="cookie-consent.js?v=d69da6ea" data-endpoint="https://vwccycigyqmctivgwcqu.functions.supabase.co/consent"></script>
 </body>
 </html>

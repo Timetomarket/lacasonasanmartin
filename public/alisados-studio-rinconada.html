@@ -840,19 +840,21 @@
         items.forEach(function (x) { io.observe(x); });
       }
 
-      // Medición (solo si el visitante aceptó análisis; gtag respeta el consentimiento)
+      // Medición solo si el visitante aceptó análisis. gtag por sí solo no basta: sin aceptar,
+      // el evento quedaba en cola y salía al aceptar más tarde
+      function analisisAceptado() { try { return localStorage.getItem('cookie_consent') === 'granted'; } catch (e) { return false; } }
       document.querySelectorAll('.js-reserva').forEach(function (a) {
         a.addEventListener('click', function () {
-          if (window.gtag) gtag('event', 'reserva_click', { local: 'alisados_studio', ubicacion: a.getAttribute('data-donde') || '' });
+          if (window.gtag && analisisAceptado()) gtag('event', 'reserva_click', { local: 'alisados_studio', ubicacion: a.getAttribute('data-donde') || '' });
         });
       });
       document.querySelectorAll('.js-ig').forEach(function (a) {
         a.addEventListener('click', function () {
-          if (window.gtag) gtag('event', 'instagram_click', { local: 'alisados_studio' });
+          if (window.gtag && analisisAceptado()) gtag('event', 'instagram_click', { local: 'alisados_studio' });
         });
       });
     })();
   </script>
-  <script src="/cookie-consent.js" data-endpoint="https://vwccycigyqmctivgwcqu.functions.supabase.co/consent"></script>
+  <script src="/cookie-consent.js?v=d69da6ea" data-endpoint="https://vwccycigyqmctivgwcqu.functions.supabase.co/consent"></script>
 </body>
 </html>

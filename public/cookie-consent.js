@@ -93,13 +93,15 @@
     document.head.appendChild(style);
   }
 
+  // El banner solo pide Google Analytics: aceptar NO concede publicidad (ad_*), que sigue
+  // negada. Antes la concedía y salían hits a doubleclick y ga-audiences (remarketing).
   function updateConsent(value) {
     if (typeof window.gtag === 'function') {
       window.gtag('consent', 'update', {
         analytics_storage: value,
-        ad_storage: value,
-        ad_user_data: value,
-        ad_personalization: value,
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
         functionality_storage: value,
         personalization_storage: value
       });
