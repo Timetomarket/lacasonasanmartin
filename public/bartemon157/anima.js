@@ -57,13 +57,22 @@
 
   /* ══════════════════════════════════ el asistente entra al bajar del hero */
   var btnChat = document.getElementById('chatAbrir');
+  var ctaHero = document.querySelector('.hero__botones');
   if (btnChat) {
     btnChat.classList.add('dormido');
-    var despierta = function () { btnChat.classList.remove('dormido'); };
-    setTimeout(despierta, 2600);
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > window.innerHeight * 0.5) despierta();
-    }, { passive: true });
+    if (ctaHero && 'IntersectionObserver' in window) {
+      // Duerme mientras se ve «Pedir en Rinconada»: en el celular lo tapaba (el temporizador
+      // de 2,6 s lo despertaba aunque la persona siguiera arriba). Si vuelve al hero, se duerme.
+      new IntersectionObserver(function (e) {
+        btnChat.classList.toggle('dormido', e[0].isIntersecting);
+      }).observe(ctaHero);
+    } else {
+      var despierta = function () { btnChat.classList.remove('dormido'); };
+      setTimeout(despierta, 2600);
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > window.innerHeight * 0.5) despierta();
+      }, { passive: true });
+    }
   }
 
   /* ═══════════════════════════════════════════════════ estado compartido  */

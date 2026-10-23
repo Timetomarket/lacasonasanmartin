@@ -229,6 +229,9 @@
       .hero { min-height: 580px; }
       .hero-inner { padding-bottom: 3.5rem; }
       .event-types, .gallery { grid-template-columns: 1fr; }
+      /* La fila acompaña la altura de la foto: con 320px de fila y 360px de foto, cada una
+         se montaba 26px sobre la siguiente y le tapaba la leyenda */
+      .gallery { grid-auto-rows: 360px; }
       .gallery figure, .gallery figure:first-child { grid-column: auto; min-height: 360px; }
       main { padding-top: 3.5rem; }
       section { margin-bottom: 3.75rem; }
@@ -254,7 +257,8 @@
   </nav>
 
   <header class="hero">
-    <picture><source type="image/webp" srcset="/photos/ig-eventos-collage-600.webp 600w, /photos/ig-eventos-collage-1080.webp 1080w" sizes="(max-width: 760px) 100vw, 60vw" /><img class="hero-media" src="/photos/ig-eventos-collage.jpg" width="1080" height="1440" fetchpriority="high" alt="Actividades y eventos realizados en Casona San Martín" /></picture>
+    <!-- Foto atenuada bajo el velo: en celular basta 800 px aunque la pantalla sea de densidad 3 (antes bajaba la de 1080) -->
+    <picture><source type="image/avif" media="(max-width: 760px)" srcset="/photos/ig-eventos-collage-600.avif 1x, /photos/ig-eventos-collage-800.avif 2x" /><source type="image/avif" srcset="/photos/ig-eventos-collage-600.avif 600w, /photos/ig-eventos-collage-800.avif 800w, /photos/ig-eventos-collage-1080.avif 1080w" sizes="60vw" /><source type="image/webp" media="(max-width: 760px)" srcset="/photos/ig-eventos-collage-600.webp 1x, /photos/ig-eventos-collage-800.webp 2x" /><source type="image/webp" srcset="/photos/ig-eventos-collage-600.webp 600w, /photos/ig-eventos-collage-800.webp 800w, /photos/ig-eventos-collage-1080.webp 1080w" sizes="60vw" /><img class="hero-media" src="/photos/ig-eventos-collage.jpg" width="1080" height="1440" fetchpriority="high" alt="Actividades y eventos realizados en Casona San Martín" /></picture>
     <div class="hero-inner">
       <p class="eyebrow">Rinconada de Los Andes</p>
       <h1>Centro de eventos y encuentros en Casona San Martín</h1>
@@ -289,9 +293,10 @@
         <p class="section-intro">Estas fotografías muestran el entorno real de la Casona. La visita permite revisar recorridos, servicios y condiciones para tu fecha antes de confirmar una propuesta.</p>
       </div>
       <div class="gallery">
-        <figure><picture><source type="image/webp" srcset="/photos/patio-600.webp 600w, /photos/patio-900.webp 900w, /photos/patio-1204.webp 1204w" sizes="(max-width: 760px) 100vw, 40vw" /><img loading="lazy" decoding="async" src="/photos/patio.jpg" width="1204" height="1504" alt="Patio interior de Casona San Martín preparado para recibir visitantes" /></picture><figcaption>Patio interior de Casona San Martín.</figcaption></figure>
-        <figure><picture><source type="image/webp" srcset="/photos/casona-corredor-jardin-700.webp 700w, /photos/casona-corredor-jardin-1400.webp 1400w" sizes="(max-width: 760px) 100vw, 40vw" /><img loading="lazy" decoding="async" src="/photos/casona-corredor-jardin.jpg" width="1400" height="735" style="object-position: 62% 50%" alt="Corredor de baldosa colonial y jardín de Casona San Martín en Rinconada de Los Andes" /></picture><figcaption>Corredor colonial y jardín.</figcaption></figure>
-        <figure><picture><source type="image/webp" srcset="/photos/corredor-1-600.webp 600w, /photos/corredor-1-1204.webp 1204w" sizes="(max-width: 760px) 100vw, 40vw" /><img loading="lazy" decoding="async" src="/photos/corredor-1.jpg" width="1204" height="1504" alt="Corredor interior de Casona San Martín" /></picture><figcaption>Corredores que conectan los espacios.</figcaption></figure>
+        <!-- AVIF y tope en celular: la galería entra en el margen de carga diferida de Chrome y se bajaba entera, en su versión más grande -->
+        <figure><picture><source type="image/avif" media="(max-width: 760px)" srcset="/photos/patio-600.avif 1x, /photos/patio-900.avif 2x" /><source type="image/avif" srcset="/photos/patio-600.avif 600w, /photos/patio-900.avif 900w, /photos/patio-1204.avif 1204w" sizes="40vw" /><source type="image/webp" media="(max-width: 760px)" srcset="/photos/patio-600.webp 1x, /photos/patio-900.webp 2x" /><source type="image/webp" srcset="/photos/patio-600.webp 600w, /photos/patio-900.webp 900w, /photos/patio-1204.webp 1204w" sizes="40vw" /><img loading="lazy" decoding="async" src="/photos/patio.jpg" width="1204" height="1504" alt="Patio interior de Casona San Martín preparado para recibir visitantes" /></picture><figcaption>Patio interior de Casona San Martín.</figcaption></figure>
+        <figure><picture><source type="image/avif" media="(max-width: 760px)" srcset="/photos/casona-corredor-jardin-700.avif 1x, /photos/casona-corredor-jardin-1400.avif 2x" /><source type="image/avif" srcset="/photos/casona-corredor-jardin-700.avif 700w, /photos/casona-corredor-jardin-1400.avif 1400w" sizes="40vw" /><source type="image/webp" media="(max-width: 760px)" srcset="/photos/casona-corredor-jardin-700.webp 1x, /photos/casona-corredor-jardin-1400.webp 2x" /><source type="image/webp" srcset="/photos/casona-corredor-jardin-700.webp 700w, /photos/casona-corredor-jardin-1400.webp 1400w" sizes="40vw" /><img loading="lazy" decoding="async" src="/photos/casona-corredor-jardin.jpg" width="1400" height="735" style="object-position: 62% 50%" alt="Corredor de baldosa colonial y jardín de Casona San Martín en Rinconada de Los Andes" /></picture><figcaption>Corredor colonial y jardín.</figcaption></figure>
+        <figure><picture><source type="image/avif" media="(max-width: 760px)" srcset="/photos/corredor-1-600.avif 1x, /photos/corredor-1-900.avif 2x" /><source type="image/avif" srcset="/photos/corredor-1-600.avif 600w, /photos/corredor-1-900.avif 900w, /photos/corredor-1-1204.avif 1204w" sizes="40vw" /><source type="image/webp" media="(max-width: 760px)" srcset="/photos/corredor-1-600.webp 1x, /photos/corredor-1-900.webp 2x" /><source type="image/webp" srcset="/photos/corredor-1-600.webp 600w, /photos/corredor-1-900.webp 900w, /photos/corredor-1-1204.webp 1204w" sizes="40vw" /><img loading="lazy" decoding="async" src="/photos/corredor-1.jpg" width="1204" height="1504" alt="Corredor interior de Casona San Martín" /></picture><figcaption>Corredores que conectan los espacios.</figcaption></figure>
       </div>
     </section>
 
