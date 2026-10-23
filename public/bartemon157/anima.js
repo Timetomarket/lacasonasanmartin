@@ -579,8 +579,9 @@
   /* ═══════════════ 7. EL HUMO DE LA PLANCHA ══════════════════════════════
      No se descarga nunca "por si acaso": son 305 KB. Sólo entra si el
      visitante no pidió movimiento reducido ni ahorro de datos, y si la
-     conexión no se declaró lenta. El póster ya está pintado, así que si el
-     video no llega no se nota. WCAG 2.2.2: botón de pausa obligatorio. ──── */
+     conexión no se declaró lenta. El video va en opacity 0 hasta que corre,
+     así que si no llega no se nota; por lo mismo no lleva póster (no se veía
+     nunca y bajaba 88 KB). WCAG 2.2.2: botón de pausa obligatorio. ──── */
   (function () {
     var vid = document.querySelector('.hero__humo');
     if (!vid) return;
