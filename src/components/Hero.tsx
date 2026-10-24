@@ -10,6 +10,18 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { trackEvent } from "../analytics";
 
+// Entrada en video: la fachada del logo abre su puerta y la cámara entra al corredor real
+// (Kling 3.0 con la foto del corredor como cuadro final). Dura 5 s, va una vez y sin sonido,
+// y queda en el último cuadro. Con «menos movimiento» o ahorro de datos no se baja: se ve la foto
+const REDUCE =
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const SIN_VIDEO =
+  REDUCE ||
+  (typeof navigator !== "undefined" &&
+    (navigator as Navigator & { connection?: { saveData?: boolean } })
+      .connection?.saveData === true);
+
 const NAV_ITEMS = [
   { label: "Nuestra Historia", href: "#historia" },
   { label: "Eventos", href: "#eventos" },
@@ -65,6 +77,57 @@ export default function Hero() {
     return () => window.removeEventListener("mousemove", handler);
   }, [rawX, rawY]);
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [video, setVideo] = useState<"espera" | "corre" | "fallo">(
+    SIN_VIDEO ? "fallo" : "espera"
+  );
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v || SIN_VIDEO) return;
+    let visible = true;
+    let partio = false;
+    const falla = () => setVideo("fallo");
+    const intenta = () => {
+      if (!partio || v.ended || document.hidden || !visible) return;
+      // AbortError = una pausa nuestra cortó el play(): no es falla. NotAllowedError (iPhone
+      // en ahorro de batería) sí: se muestra la foto en vez de quedar pegado en la puerta
+      v.play()?.catch((e: DOMException) => {
+        if (e.name !== "AbortError") falla();
+      });
+    };
+    const arranca = () => {
+      partio = true;
+      v.preload = "auto";
+      v.load();
+      intenta();
+    };
+    v.querySelector("source:last-of-type")?.addEventListener("error", falla);
+    const io = new IntersectionObserver(
+      ([e]) => {
+        visible = e.isIntersecting;
+        if (visible) intenta();
+        else if (!v.paused) v.pause();
+      },
+      { threshold: 0.4 }
+    );
+    io.observe(v);
+    const alCambiarPestana = () => (document.hidden ? v.pause() : intenta());
+    document.addEventListener("visibilitychange", alCambiarPestana);
+    // El video se pide recién con la página cargada: no le pelea la red al primer cuadro (el LCP)
+    const ocioso =
+      window.requestIdleCallback ??
+      ((f: () => void) => window.setTimeout(f, 200));
+    const enCarga = () => ocioso(arranca, { timeout: 1500 });
+    if (document.readyState === "complete") enCarga();
+    else window.addEventListener("load", enCarga, { once: true });
+    return () => {
+      io.disconnect();
+      document.removeEventListener("visibilitychange", alCambiarPestana);
+      window.removeEventListener("load", enCarga);
+    };
+  }, []);
+
   // Hide scroll indicator on scroll
   const { scrollY } = useScroll();
   const indicatorOpacity = useTransform(scrollY, [0, 120], [1, 0]);
@@ -80,40 +143,119 @@ export default function Hero() {
             className="hero-lqip absolute inset-[-5%]"
             style={{ x: imgX, y: imgY }}
           >
-            <picture className="block h-full w-full">
-              {/* AVIF y WebP: el JPG pesaba 531 KB y era el LCP de la portada.
-                  En el celular solo se ve la franja central, así que tope de 1200 px aunque la
-                  pantalla sea de densidad 3. Mismas fuentes y orden que el marco del index.html,
-                  para que React reuse la foto ya bajada en vez de pedirla otra vez */}
-              <source
-                type="image/avif"
-                media="(max-width: 768px)"
-                srcSet="/photos/hero-800.avif 1x, /photos/hero-1200.avif 2x"
-              />
-              <source
-                type="image/avif"
-                srcSet="/photos/hero-800.avif 800w, /photos/hero-1200.avif 1200w, /photos/hero-1500.avif 1500w"
-                sizes="130vw"
-              />
-              <source
-                type="image/webp"
-                media="(max-width: 768px)"
-                srcSet="/photos/hero-800.webp 1x, /photos/hero-1200.webp 2x"
-              />
-              <source
-                type="image/webp"
-                srcSet="/photos/hero-800.webp 800w, /photos/hero-1200.webp 1200w, /photos/hero-1500.webp 1500w"
-                sizes="130vw"
-              />
-            <motion.img
-              src="/photos/hero.jpg"
-              alt="Corredor de Casona San Martín hacia el jardín"
-              className="h-full w-full object-cover"
-              initial={{ scale: 1.08 }}
-              animate={{ scale: 1.18 }}
+            {/* El acercamiento lento va en una capa que lleva la puerta, el video y la foto
+                juntos: así el video no salta al tomar el lugar del primer cuadro. Es suave
+                (1,02 → 1,08) porque el video ya trae su movimiento de cámara */}
+            <motion.div
+              className="absolute inset-0"
+              initial={{ scale: 1.02 }}
+              animate={{ scale: 1.08 }}
               transition={{ duration: 22, ease: "easeOut" }}
-            />
-            </picture>
+            >
+              <picture className="block h-full w-full">
+                {/* Mismas fuentes y orden que el marco del index.html, para que React reuse la
+                    imagen ya bajada. Con «menos movimiento» va la foto del corredor (el JPG pesaba
+                    531 KB: AVIF/WebP con tope de 1200 px en el celular). Si no, la puerta cerrada,
+                    que es el cuadro 0 del video: es el LCP y pesa menos que la foto */}
+                <source
+                  type="image/avif"
+                  media="(prefers-reduced-motion: reduce) and (max-width: 768px)"
+                  srcSet="/photos/hero-800.avif 1x, /photos/hero-1200.avif 2x"
+                />
+                <source
+                  type="image/avif"
+                  media="(prefers-reduced-motion: reduce)"
+                  srcSet="/photos/hero-800.avif 800w, /photos/hero-1200.avif 1200w, /photos/hero-1500.avif 1500w"
+                  sizes="130vw"
+                />
+                <source
+                  type="image/webp"
+                  media="(prefers-reduced-motion: reduce) and (max-width: 768px)"
+                  srcSet="/photos/hero-800.webp 1x, /photos/hero-1200.webp 2x"
+                />
+                <source
+                  type="image/webp"
+                  media="(prefers-reduced-motion: reduce)"
+                  srcSet="/photos/hero-800.webp 800w, /photos/hero-1200.webp 1200w, /photos/hero-1500.webp 1500w"
+                  sizes="130vw"
+                />
+                <source
+                  type="image/avif"
+                  media="(max-width: 768px)"
+                  srcSet="/video/puerta-movil-720.avif 1x, /video/puerta-movil-1080.avif 2x"
+                />
+                <source
+                  type="image/avif"
+                  srcSet="/video/puerta-1280.avif 1280w, /video/puerta-1920.avif 1920w"
+                  sizes="120vw"
+                />
+                <source
+                  type="image/webp"
+                  media="(max-width: 768px)"
+                  srcSet="/video/puerta-movil-720.webp 1x, /video/puerta-movil-1080.webp 2x"
+                />
+                <source
+                  type="image/webp"
+                  srcSet="/video/puerta-1280.webp 1280w, /video/puerta-1920.webp 1920w"
+                  sizes="120vw"
+                />
+                <img
+                  src="/photos/hero.jpg"
+                  alt="Casona San Martín: su puerta de madera se abre hacia el corredor y el jardín"
+                  className="h-full w-full object-cover"
+                />
+              </picture>
+
+              {!SIN_VIDEO && (
+                <video
+                  ref={videoRef}
+                  className={`absolute inset-0 h-full w-full object-cover ${
+                    video === "corre" ? "opacity-100" : "opacity-0"
+                  }`}
+                  muted
+                  playsInline
+                  preload="none"
+                  aria-hidden="true"
+                  onPlaying={() => setVideo("corre")}
+                >
+                  {/* Vertical en el celular y horizontal en pantallas anchas, cada una con
+                      su propio recorrido de cámara. AV1 primero, H.264 de respaldo */}
+                  <source src="/video/intro-movil.av1.mp4" type='video/mp4; codecs="av01.0.05M.08"' media="(max-width: 768px)" />
+                  <source src="/video/intro-movil.hevc.mp4" type='video/mp4; codecs="hvc1.1.6.L93.B0"' media="(max-width: 768px)" />
+                  <source src="/video/intro-movil.h264.mp4" type='video/mp4; codecs="avc1.64001F"' media="(max-width: 768px)" />
+                  <source src="/video/intro-1600.av1.mp4" type='video/mp4; codecs="av01.0.08M.08"' />
+                  <source src="/video/intro-1280.hevc.mp4" type='video/mp4; codecs="hvc1.1.6.L93.B0"' />
+                  <source src="/video/intro-1280.h264.mp4" type='video/mp4; codecs="avc1.64001F"' />
+                </video>
+              )}
+
+              {/* Sin video (ahorro de datos, autoplay bloqueado, archivo que no carga): la foto
+                  del corredor tapa la puerta. Con «menos movimiento» ya la trae el <picture> */}
+              {video === "fallo" && !REDUCE && (
+                <motion.picture
+                  className="absolute inset-0 block h-full w-full"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <source
+                    type="image/avif"
+                    media="(max-width: 768px)"
+                    srcSet="/photos/hero-800.avif 1x, /photos/hero-1200.avif 2x"
+                  />
+                  <source
+                    type="image/avif"
+                    srcSet="/photos/hero-800.avif 800w, /photos/hero-1200.avif 1200w, /photos/hero-1500.avif 1500w"
+                    sizes="130vw"
+                  />
+                  <img
+                    src="/photos/hero.jpg"
+                    alt=""
+                    className="h-full w-full object-cover"
+                  />
+                </motion.picture>
+              )}
+            </motion.div>
           </motion.div>
 
           <div className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.4] mix-blend-overlay" />

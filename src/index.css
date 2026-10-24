@@ -54,9 +54,16 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: url("data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADwAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JQBOgA3PKM/Mo3i5Of/EgAP7qMVQORZIuOiXXUWr6k+enqX4tMym1O5JS577g6hB7ufRVKoCJdLLvVavJd9BIykY4ERvQQCLs2KVMa3MdUKsCLhiSqNaMRzTVy69Cj8LHA9xxtyIBw7C4aIt9AAAA") center / cover no-repeat;
+  /* la puerta cerrada (cuadro 0 del video de entrada) */
+  background: url("data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoQAAkAA4BaJbACdADRNLbtpYAA+6IU/Eu0DxZOogsAhhHSCm74Qx2ww9VYBJS1Y+802+1V+Es0gZ8WYFovJjULGZH4eY6+Zxb76a+TF5rqprqlJKoAAA==") center / cover no-repeat;
   filter: blur(28px);
   transform: scale(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-lqip::before {
+    background-image: url("data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADwAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JQBOgA3PKM/Mo3i5Of/EgAP7qMVQORZIuOiXXUWr6k+enqX4tMym1O5JS577g6hB7ufRVKoCJdLLvVavJd9BIykY4ERvQQCLs2KVMa3MdUKsCLhiSqNaMRzTVy69Cj8LHA9xxtyIBw7C4aIt9AAAA");
+  }
 }
 
 .noise-overlay {
