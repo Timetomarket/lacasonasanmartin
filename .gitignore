@@ -31,8 +31,9 @@ backend/routers/__pycache__/
 backend/services/__pycache__/
 backend/inventario.db
 
-# Sensitive files with API keys
-public/chat.php
+# La llave del chat vive en el servidor, fuera de public_html (casona-secretos.php).
+# chat.php ya no lleva secretos y se versiona: antes era la única copia y se perdió.
+*-secretos.php
 
 # Frontend env con URLs/secretos de producción (documentar en .env.production.example)
 .env.production
